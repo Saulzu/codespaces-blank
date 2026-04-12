@@ -16,32 +16,29 @@
 
 int main()
 {
-   Tablero mapaJ1; 
-   Tablero mapaJ2;
-   Jugador player1 = {10, 5, 0, "UC", "uamito"};
-   Jugador player2 = {10, 5, 0, "UX", "xochito"};
-   
-   mapaJ1.numRens = 20;
-   mapaJ1.numCols = 20;
-   mapaJ1.totalBarcos = 6;
+    srand((unsigned) time(NULL));
 
-   mapaJ2.numRens = 20;
-   mapaJ2.numCols = 20;
-   mapaJ2.totalBarcos = 6;
-   prepararTableros(&mapaJ1, &mapaJ2);
-   imprimetablero(mapaJ1);
-   imprimetablero(mapaJ2);
-   sembrarBarcos(mapaJ1);
-   sembrarBarcos(mapaJ2);
-   destruyeTableros(mapaJ1, mapaJ2);
-   //leerConfigJuego(&mapaJ1, &mapaJ2, &player1, &player2);
+    Tablero mapaJ1;
+    Tablero mapaJ2;
+    Jugador player1;
+    Jugador player2;
 
-   //prepararTableros(&mapaJ1, &mapaJ2); 
-   
-   jugar(mapaJ1, mapaJ2, player1, player2);
+    leerConfigJuego(&mapaJ1, &mapaJ2, &player1, &player2);
 
-   //destruyTableros(mapaJ1, mapaJ2);
+    player1.nBarcosVivos = player1.nBarcosTotal;
+    player1.nBarcosHundidos = 0;
+    player2.nBarcosVivos = player2.nBarcosTotal;
+    player2.nBarcosHundidos = 0;
 
-   return 0;
+    prepararTableros(&mapaJ1, &mapaJ2);
+
+    sembrarBarcos(&mapaJ1);
+    sembrarBarcos(&mapaJ2);
+
+    jugar(&mapaJ1, &mapaJ2, &player1, &player2);
+
+    destruyeTableros(&mapaJ1, &mapaJ2);
+
+    return 0;
 }
 

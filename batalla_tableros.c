@@ -60,20 +60,20 @@ void destruyeTableros(Tablero tab1, Tablero tab2) {
     destruyTablero(&tab2);
 }
 
-void sembrarBarcos(Tablero tab) {
-/*
- Acá deben usar su algoritmo que poner 1s en una matriz.
- En lugar de poner los 1s de manera explícita, coloquen
- un constante de tipo EdoCasilla
-*/
+void sembrarBarcos(Tablero *tab) {
+
     int barcosColocados = 0;
 
-    while (barcosColocados < tab.totalBarcos) {
-        int i = rand() % tab.numRens;
-        int j = rand() % tab.numCols;
+    if (tab->totalBarcos > tab->numRens * tab->numCols) {
+        printf("\nMuchos barcos para el tamaño del tablero\n");
+        return;
+    }
+    while (barcosColocados < tab->totalBarcos) {
+        int ren = rand() % tab->numRens;
+        int col = rand() % tab->numCols;
 
-        if (tab.array[i][j] == CASILLA_VACIA) {
-            tab.array[i][j] = BARCO_OCULTO;
+        if (tab->array[ren][col] == CASILLA_VACIA) {
+            tab->array[ren][col] = BARCO_OCULTO;
             barcosColocados++;
         }
     }
