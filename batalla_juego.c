@@ -2,47 +2,37 @@
 #include "batalla_juego.h"
 #include "biblio_printconsola.h"
 
-int leerTiradaValida(int maxR, int maxC, int* outRen, int* outCol) {
+void leerTiradaValida(int maxR, int maxC, int* outRen, int* outCol) {
     int fila, col;
     int leidoFila, leidoCol;
-
     do {
         printf("Ingresa la fila (1-%d): ", maxR);
         leidoFila = scanf("%d", &fila);
-
         if (leidoFila != 1 || fila < 1 || fila > maxR) {
             printf("Fila inválida. Intenta de nuevo.\n");
-            leidoFila = 0; // Forzamos repetir si el rango está mal
+            leidoFila = 0; 
         }
-
         printf("Ingresa la columna (1-%d): ", maxC);
         leidoCol = scanf("%d", &col);
-
         if (leidoCol != 1 || col < 1 || col > maxC) {
             printf("Columna inválida. Intenta de nuevo.\n");
             leidoCol = 0;
         }
-
     } while (leidoFila != 1 || leidoCol != 1);
-
+    
     *outRen = fila - 1;
     *outCol = col - 1;
-
-    return 1;
 }
 
 int marcarTiro(Tablero* objetivo, int fila, int col) {
     int actual = objetivo->array[fila][col];
-
-    if (actual == BARCO_HUNDIDO || actual == TIRO_CAIDO) {
+    if (actual == BARCO_HUNDIDO || actual == TIRO_CAIDO)
         return -1;
-    }
 
     if (actual == BARCO_OCULTO) {
         objetivo->array[fila][col] = BARCO_HUNDIDO;
         return 1;
     }
-
     objetivo->array[fila][col] = TIRO_CAIDO;
     return 0;
 }
@@ -169,7 +159,6 @@ void jugar(Tablero* t1, Tablero* t2, Jugador* j1, Jugador* j2) {
          limpiaConsola();
          turnoBatalla(atacante, defensor, 2, 10);
          desplegarTableros(*propio, *enemigo, atacante, defensor);
-
          printf("\n");
          leerTiradaValida(propio->numRens, propio->numCols, &fila, &col);
             
