@@ -76,16 +76,23 @@ void sembrarBarcos(Tablero* tab) {
         tab->array[ren][col] = BARCO_OCULTO;
     }
 }
-
 void leerInfoTableros(Tablero* tab1, Tablero* tab2) {
-    printf("\nIngresa el núm. de renglones: ");
-    scanf("%d", &(tab1->numRens));
-
-    printf("\nIngresa el núm. de columnas: ");
-    scanf("%d", &(tab1->numCols));
+    do {
+        printf("\nIngresa el num. de renglones (5-50): ");
+        scanf("%d", &(tab1->numRens));
+        if (tab1->numRens < 5 || tab1->numRens > 50) 
+            printf("Dato invalido, intenta de nuevo.\n");
+    } while (tab1->numRens < 5 || tab1->numRens > 50);
+   
+    do {
+        printf("Ingresa el num. de columnas (5-50): ");
+        scanf("%d", &(tab1->numCols));
+        if (tab1->numCols < 5 || tab1->numCols > 50) 
+            printf("Dato invalido, intenta de nuevo.\n");
+    } while (tab1->numCols < 5 || tab1->numCols > 50);
 
     int maxBarcos = tab1->numRens * tab1->numCols;
-    printf("\nCuántos barcos iniciarán (entre 1 y %d): ", maxBarcos);
+    printf("Cuantos barcos (1-%d): ", maxBarcos);
     scanf("%d", &(tab1->totalBarcos));
 
     tab2->numRens = tab1->numRens;
