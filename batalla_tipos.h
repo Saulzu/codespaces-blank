@@ -1,4 +1,3 @@
-
 #ifndef BATALLA_TIPOS_H
 #define BATALLA_TIPOS_H
 
@@ -6,6 +5,8 @@
 #define BLANCO 255
 #define ROJO 196
 #define VERDE 46
+#define CIAN 6
+#define MORADO 93
 
 // Esta enumeración pone disponibles constantes que podemos usar en nuestro
 // código para hacerlo más claro.

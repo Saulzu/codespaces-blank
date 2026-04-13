@@ -4,14 +4,10 @@
 #include <time.h>
 #include <string.h>
 #include <math.h> 
-#include "batalla_config.c"
 #include "batalla_config.h"
-#include "batalla_juego.c"
 #include "batalla_juego.h"
-#include "batalla_tableros.c"
 #include "batalla_tableros.h"
 #include "batalla_tipos.h"
-#include "biblio_printconsola.c"
 #include "biblio_printconsola.h"
 
 int main()
@@ -31,9 +27,6 @@ int main()
     player2.nBarcosHundidos = 0;
 
     prepararTableros(&mapaJ1, &mapaJ2);
-
-    sembrarBarcos(&mapaJ1);
-    sembrarBarcos(&mapaJ2);
 
     jugar(&mapaJ1, &mapaJ2, &player1, &player2);
 

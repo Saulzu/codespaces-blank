@@ -24,14 +24,14 @@ void iniciaTablero(Tablero* tab);
 Esta función libera (función free) la memoria que ocupa el arreglo dinámico
 de cada Tablero.
 */
-void destruyeTableros(Tablero tab1, Tablero tab2);
+void destruyeTableros(Tablero* tab1, Tablero* tab2);
 void destruyTablero(Tablero* tab);
 /* 
 Esta función recibe un Tablero y coloca aleatoriamente N barcos
 en posiciones aleatorias. Es decir, los coloca en el arreglo array
 que está adentro del Tablero.
 */
-void sembrarBarcos(Tablero tab);
+void sembrarBarcos(Tablero* tab);
 
 
 /*
