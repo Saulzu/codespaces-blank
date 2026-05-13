@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "act4_2",
+      "request": "launch",
+      "mainClass": "act4_2",
+      "projectName": "Repo_C_a6265338"
+    },
+    {
+      "type": "java",
       "name": "First",
       "request": "launch",
       "mainClass": "First",
