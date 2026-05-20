@@ -1,70 +1,75 @@
 # Repo_C
 
-## Overview
+## Descripción
 
-This repository contains C programming projects and exercises, with a main focus on a console-based Battleship game (`Batalla Naval`) and additional structured programming practice examples. It also includes object-oriented programming examples in C++ and Java, as well as Python scripts.
+Este repositorio contiene proyectos y ejercicios de programación en C, con ejemplos adicionales en C++ y Java, además de scripts en Python. El objetivo principal es servir como un banco de prácticas para programación estructurada y orientada a objetos.
 
-The Battleship game is implemented with modular C source files that separate configuration, board setup, game logic, and console output handling.
+## Estructura del repositorio
 
-## Repository Structure
+- `README.md` - Documento de descripción y guía básica.
+- `output/` - Ejecutables compilados de varios programas en C.
+- `poo/` - Ejemplos de programación orientada a objetos.
+  - `c/` - Ejemplos en C con conceptos de programación estructurada.
+  - `cplus2/` - Ejemplos en C++.
+  - `java/` - Ejemplos en Java.
+- `prog_estruct/` - Ejercicios de programación estructurada en C y Python.
+  - `recomendacion.py` - Script en Python para recomendaciones.
+  - `strint.c` - Programa en C para operaciones con cadenas y enteros.
+  - `arreglos/` - Ejercicios con arreglos.
+  - `azar/` - Ejercicios con elementos aleatorios o juegos sencillos.
+  - `batallaNaval/` - Implementación del juego Batalla Naval en C.
+  - `week1/`, `week2/`, `week3/`, `weekFinal/`, `weekOne/` - Colecciones de ejercicios organizados por semana.
 
-- `README.md` - This file.
-- `output/` - Directory containing compiled executables from various C programs.
-- `poo/` - Object-oriented programming examples.
-  - `cplus2/` - C++ code examples.
-  - `java/` - Java code examples.
-- `prog_estruct/` - Structured programming exercises in C and Python, organized by topic and week.
-  - `recomendacion.py` - Python script for recommendations.
-  - `strint.c` - C program for string-integer operations.
-  - `arreglos/` - Array-related exercises.
-    - `arreglo_mayor.c` - Find largest in array.
-    - `binaria.c` - Binary search.
-    - `dist_num.c` - Number distribution.
-    - `entero.c` - Integer operations.
-  - `azar/` - Random/exercise files.
-    - `ejersmn4.c` - Exercise 4.
-  - `batallaNaval/` - Battleship game implementation.
-    - `batalla_config.c` / `batalla_config.h` - Configuration.
-    - `batalla_juego.c` / `batalla_juego.h` - Game logic.
-    - `batalla_main.c` - Main entry point.
-    - `batalla_tableros.c` / `batalla_tableros.h` - Board management.
-    - `batalla_tipos.h` - Type definitions.
-    - `biblio_printconsola.c` / `biblio_printconsola.h` - Console utilities.
-    - `output/` - Compiled outputs.
-  - `week1/` - Week 1 exercises.
-  - `week2/` - Week 2 exercises.
-  - `week3/` - Week 3 exercises.
-  - `weekFinal/` - Final week exercises.
-  - `weekOne/` - Additional week 1 exercises.
+## Batalla Naval
 
-## Build Instructions
+El módulo `prog_estruct/batallaNaval` contiene una implementación modular del juego Batalla Naval en C.
 
-To compile the Battleship game on Linux using `gcc`:
+Archivos principales:
+
+- `batalla_main.c` - Punto de entrada del juego.
+- `batalla_config.c` / `batalla_config.h` - Configuración de juegos y constantes.
+- `batalla_tableros.c` / `batalla_tableros.h` - Gestión de los tableros.
+- `batalla_juego.c` / `batalla_juego.h` - Lógica principal del juego.
+- `batalla_tipos.h` - Tipos y estructuras de datos.
+- `biblio_printconsola.c` / `biblio_printconsola.h` - Utilidades para impresión en consola.
+
+## Cómo compilar
+
+### Compilar Batalla Naval
 
 ```bash
 cd prog_estruct/batallaNaval
 gcc -Wall -g batalla_main.c batalla_config.c batalla_tableros.c batalla_juego.c biblio_printconsola.c -o batalla_main
 ```
 
-Then run the executable:
+Ejecutar:
 
 ```bash
 ./batalla_main
 ```
 
-For other C programs, navigate to their directories and compile similarly, e.g.:
+### Compilar otros programas en C
+
+Navega al directorio donde está el archivo fuente y usa `gcc`:
 
 ```bash
-gcc -Wall -g program.c -o program
+gcc -Wall -g archivo.c -o archivo
 ```
 
-## Notes
+Ejemplo:
 
-- The repository is designed for learning and practicing programming concepts in C, C++, Java, and Python.
-- The `prog_estruct` directory contains standalone exercise files and folders that can be compiled separately.
-- The `output` directories contain pre-compiled executables; rebuild as needed.
-- If binaries already exist, they may be previously built and can be safely removed before rebuilding.
+```bash
+cd prog_estruct/arreglos
+gcc -Wall -g arreglo_mayor.c -o arreglo_mayor
+./arreglo_mayor
+```
 
-## License
+## Notas importantes
 
-No license is specified in this repository. Use and modify the code for educational purposes.
+- Las carpetas `output/` contienen binarios compilados previamente que se pueden eliminar y volver a compilar si es necesario.
+- Cada ejercicio o ejemplo generalmente es independiente y puede compilarse por separado.
+- El propósito principal del repositorio es educativo.
+
+## Licencia
+
+No se especifica una licencia en este repositorio. Usa y modifica el código para fines educativos.
