@@ -3,6 +3,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Avion",
+      "request": "launch",
+      "mainClass": "Avion",
+      "projectName": "Repo_C_a6265338"
+    },
+    {
+      "type": "java",
+      "name": "act4_4",
+      "request": "launch",
+      "mainClass": "act4_4",
+      "projectName": "Repo_C_a6265338"
+    },
+    {
+      "type": "java",
+      "name": "act4_3",
+      "request": "launch",
+      "mainClass": "act4_3",
+      "projectName": "Repo_C_a6265338"
+    },
+    {
+      "type": "java",
       "name": "act4_2",
       "request": "launch",
       "mainClass": "act4_2",

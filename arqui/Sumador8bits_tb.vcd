@@ -1,0 +1,151 @@
+$date
+  Tue May 19 09:51:11 2026
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module sumador8bits_tb $end
+$var reg 8 ! s1[7:0] $end
+$var reg 8 " s2[7:0] $end
+$var reg 1 # cin $end
+$var reg 8 $ r0[7:0] $end
+$var reg 1 % cout $end
+$var reg 1 & v $end
+$scope module sumador8bits0 $end
+$var reg 8 ' a[7:0] $end
+$var reg 8 ( b[7:0] $end
+$var reg 1 ) ci $end
+$var reg 8 * r[7:0] $end
+$var reg 1 + c $end
+$var reg 1 , v $end
+$var reg 8 - cx[7:0] $end
+$scope module sumador0 $end
+$var reg 1 . a $end
+$var reg 1 / b $end
+$var reg 1 0 ci $end
+$var reg 1 1 r $end
+$var reg 1 2 co $end
+$upscope $end
+$scope module sumador1 $end
+$var reg 1 3 a $end
+$var reg 1 4 b $end
+$var reg 1 5 ci $end
+$var reg 1 6 r $end
+$var reg 1 7 co $end
+$upscope $end
+$scope module sumador2 $end
+$var reg 1 8 a $end
+$var reg 1 9 b $end
+$var reg 1 : ci $end
+$var reg 1 ; r $end
+$var reg 1 < co $end
+$upscope $end
+$scope module sumador3 $end
+$var reg 1 = a $end
+$var reg 1 > b $end
+$var reg 1 ? ci $end
+$var reg 1 @ r $end
+$var reg 1 A co $end
+$upscope $end
+$scope module sumador4 $end
+$var reg 1 B a $end
+$var reg 1 C b $end
+$var reg 1 D ci $end
+$var reg 1 E r $end
+$var reg 1 F co $end
+$upscope $end
+$scope module sumador5 $end
+$var reg 1 G a $end
+$var reg 1 H b $end
+$var reg 1 I ci $end
+$var reg 1 J r $end
+$var reg 1 K co $end
+$upscope $end
+$scope module sumador6 $end
+$var reg 1 L a $end
+$var reg 1 M b $end
+$var reg 1 N ci $end
+$var reg 1 O r $end
+$var reg 1 P co $end
+$upscope $end
+$scope module sumador7 $end
+$var reg 1 Q a $end
+$var reg 1 R b $end
+$var reg 1 S ci $end
+$var reg 1 T r $end
+$var reg 1 U co $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b10000011 !
+b10000011 "
+1#
+b00000111 $
+1%
+1&
+b10000011 '
+b10000011 (
+1)
+b00000111 *
+1+
+1,
+b10000011 -
+1.
+1/
+10
+11
+12
+13
+14
+15
+16
+17
+08
+09
+1:
+1;
+0<
+0=
+0>
+0?
+0@
+0A
+0B
+0C
+0D
+0E
+0F
+0G
+0H
+0I
+0J
+0K
+0L
+0M
+0N
+0O
+0P
+1Q
+1R
+0S
+0T
+1U
+#1000000
+b10000010 !
+b00000110 $
+b10000010 '
+b00000110 *
+0.
+01
+#2000000
+#3000000
+#4000000
