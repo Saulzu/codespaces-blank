@@ -13,4 +13,10 @@ public class Camion extends Vehiculo {
         double costoBase = 5000.0; 
         return costoBase + (this.capacidadToneladas * 450.0);
     }
+    @Override
+    public void mostrarInformacion() {
+        System.out.print("[Tipo: Camión] -> ");
+        super.mostrarInformacion();
+        System.out.println("   Detalle: Capacidad de " + capacidadToneladas + " toneladas");
+    }
 }

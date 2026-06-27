@@ -14,9 +14,8 @@ public abstract class Vehiculo implements Comparable<Vehiculo> {
     public abstract double calcularCostoServicio();
 
     public void mostrarInformacion() {
-        System.out.println("Vehículo -> Marca: " + marca + ", Modelo: " + modelo + ", Año: " + anio);
+        System.out.print("Marca: " + marca + ", Modelo: " + modelo + ", Año: " + anio);
     }
-
 
     @Override
     public int compareTo(Vehiculo otro) {

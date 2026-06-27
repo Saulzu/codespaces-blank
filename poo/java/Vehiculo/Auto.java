@@ -13,4 +13,11 @@ public class Auto extends Vehiculo {
         double costoBase = 1500.0;
         return costoBase + (this.numPuertas * 200.0);
     }
+
+    @Override
+    public void mostrarInformacion() {
+        System.out.print("[Tipo: Automóvil] -> ");
+        super.mostrarInformacion();
+        System.out.println("   Detalle: " + numPuertas + " puertas");
+    }
 }

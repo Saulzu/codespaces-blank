@@ -13,4 +13,11 @@ public class Motocicleta extends Vehiculo {
         double costoBase = 800.0;
         return costoBase + (this.cilindrada * 1.5);
     }
+
+    @Override
+    public void mostrarInformacion() {
+        System.out.print("[Tipo: Motocicleta] -> ");
+        super.mostrarInformacion();
+        System.out.println("   Detalle: Cilindrada de " + cilindrada + " cc");
+    }
 }

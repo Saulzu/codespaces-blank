@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "Vehiculo.Main",
+      "projectName": "Repo_C_a6265338"
+    },
+    {
+      "type": "java",
       "name": "Estudiante",
       "request": "launch",
       "mainClass": "Estudiante",
