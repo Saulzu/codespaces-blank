@@ -2,24 +2,20 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity ALU is
-    library IEEE;
-    use IEEE.STD_LOGIC_1164.ALL;
+    Port (
+        A      : in  STD_LOGIC_VECTOR(7 downto 0);
+        B      : in  STD_LOGIC_VECTOR(7 downto 0);
+        S      : in  STD_LOGIC_VECTOR(3 downto 0);
+        Ci     : in  STD_LOGIC;
+        R      : out STD_LOGIC_VECTOR(7 downto 0);
+        C      : out STD_LOGIC;
+        V      : out STD_LOGIC;
+        S_flag : out STD_LOGIC;
+        Z      : out STD_LOGIC
+    );
+end ALU;
 
-    entity ALU is
-        Port (
-            A      : in  STD_LOGIC_VECTOR(7 downto 0);
-            B      : in  STD_LOGIC_VECTOR(7 downto 0);
-            S      : in  STD_LOGIC_VECTOR(3 downto 0);
-            Ci     : in  STD_LOGIC;
-            R      : out STD_LOGIC_VECTOR(7 downto 0);
-            C      : out STD_LOGIC;
-            V      : out STD_LOGIC;
-            S_flag : out STD_LOGIC;
-            Z      : out STD_LOGIC
-        );
-    end ALU;
-
-    architecture Arq_ALU of ALU is
+architecture Arq_ALU of ALU is
 
         component Unidad_Logica is
             Port (
