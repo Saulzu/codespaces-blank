@@ -4,14 +4,28 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity PC is
     Port (
         CLK : in  STD_LOGIC;
-        W   : in  STD_LOGIC;                     -- Habilitación de escritura general
-        C   : in  STD_LOGIC_VECTOR(15 downto 0); -- Entrada para carga en paralelo
+        W   : in  STD_LOGIC;                     -- Selector de Carga (S del Mux)
+        C   : in  STD_LOGIC_VECTOR(15 downto 0); -- Entrada para carga paralela (I1)
         Q   : out STD_LOGIC_VECTOR(15 downto 0)  -- Salida actual del PC
     );
 end PC;
 
 architecture Arq_PC of PC is
 
+    -- ========================================================
+    -- DECLARACIÓN DE COMPONENTES
+    -- ========================================================
+    -- Tu componente Multiplexor 2 a 1
+    component Mux_2a1_n is
+        Port (
+            I0 : in  STD_LOGIC;
+            I1 : in  STD_LOGIC;
+            S  : in  STD_LOGIC;
+            Y  : out STD_LOGIC
+        );
+    end component;
+
+    -- Tu componente Flip-Flop D
     component FlipFlopD is
         Port (
             CLK : in  STD_LOGIC;
@@ -20,34 +34,24 @@ architecture Arq_PC of PC is
         );
     end component;
 
-    -- Señales de estado actual del contador
+    -- ========================================================
+    -- CABLES INTERNOS
+    -- ========================================================
     signal q_reg : STD_LOGIC_VECTOR(15 downto 0);
-    
-    -- Entrada de datos finales listos para ir a cada Flip-Flop D
     signal d_reg : STD_LOGIC_VECTOR(15 downto 0);
-    
-    -- Líneas del bus de acarreo de incremento (ANDs en cascada)
-    signal carry : STD_LOGIC_VECTOR(15 downto 0);
-    
-    -- Valor que resultaría del incremento bit a bit
     signal inc   : STD_LOGIC_VECTOR(15 downto 0);
-
-    -- Señal de control invertida para los muxes de carga/incremento
-    signal W_n   : STD_LOGIC;
+    signal carry : STD_LOGIC_VECTOR(15 downto 0);
 
 begin
 
-    W_n <= not W;
-    Q   <= q_reg; -- Conexión directa a la salida física
+    Q <= q_reg; -- Salida física conectada al estado interno
 
     -- ========================================================
-    -- 1. LÓGICA DE INCREMENTO COMBINACIONAL PURA (SIN SUMADOR)
+    -- 1. LÓGICA DE INCREMENTO (ANDs y XORs en cascada)
     -- ========================================================
-    -- El bit 0 siempre cambia si el contador está activo
     inc(0)   <= q_reg(0) xor '1';
     carry(0) <= q_reg(0);
 
-    -- Propagación del acarreo mediante compuertas lógicas en cascada
     inc(1)   <= q_reg(1) xor carry(0);
     carry(1) <= carry(0) and q_reg(1);
 
@@ -91,33 +95,58 @@ begin
     carry(14)<= carry(13) and q_reg(14);
 
     inc(15)  <= q_reg(15) xor carry(14);
-    -- El último acarreo carry(15) no se necesita mapear ya que es el final del bus.
 
     -- ========================================================
-    -- 2. SELECCIÓN DE ENTRADA: ¿CARGA EN PARALELO O INCREMENTO?
+    -- 2. INSTANCIACIÓN DE MUXES Y FLIP-FLOPS (BIT A BIT)
     -- ========================================================
-    -- Si W = '1' -> Se guardan los datos externos de C (Carga paralela)
-    -- Si W = '0' -> Se mantiene el circuito en modo contador interno (Incrementa continuamente)
-    d_reg <= (C and (15 downto 0 => W)) or (inc and (15 downto 0 => W_n));
+    -- Si W = '0' pasa inc (I0). Si W = '1' pasa carga paralela C (I1).
+    
+    MUX0 : Mux_2a1_n port map (I0 => inc(0),  I1 => C(0),  S => W, Y => d_reg(0));
+    FF0  : FlipFlopD port map (CLK => CLK, D => d_reg(0),  Q => q_reg(0));
 
-    -- ========================================================
-    -- 3. ARRASTRADO ESTRUCTURAL DE LOS 16 FLIP-FLOPS D
-    -- ========================================================
-    FF_PC0  : FlipFlopD port map (CLK => CLK, D => d_reg(0),  Q => q_reg(0));
-    FF_PC1  : FlipFlopD port map (CLK => CLK, D => d_reg(1),  Q => q_reg(1));
-    FF_PC2  : FlipFlopD port map (CLK => CLK, D => d_reg(2),  Q => q_reg(2));
-    FF_PC3  : FlipFlopD port map (CLK => CLK, D => d_reg(3),  Q => q_reg(3));
-    FF_PC4  : FlipFlopD port map (CLK => CLK, D => d_reg(4),  Q => q_reg(4));
-    FF_PC5  : FlipFlopD port map (CLK => CLK, D => d_reg(5),  Q => q_reg(5));
-    FF_PC6  : FlipFlopD port map (CLK => CLK, D => d_reg(6),  Q => q_reg(6));
-    FF_PC7  : FlipFlopD port map (CLK => CLK, D => d_reg(7),  Q => q_reg(7));
-    FF_PC8  : FlipFlopD port map (CLK => CLK, D => d_reg(8),  Q => q_reg(8));
-    FF_PC9  : FlipFlopD port map (CLK => CLK, D => d_reg(9),  Q => q_reg(9));
-    FF_PC10 : FlipFlopD port map (CLK => CLK, D => d_reg(10), Q => q_reg(10));
-    FF_PC11 : FlipFlopD port map (CLK => CLK, D => d_reg(11), Q => q_reg(11));
-    FF_PC12 : FlipFlopD port map (CLK => CLK, D => d_reg(12), Q => q_reg(12));
-    FF_PC13 : FlipFlopD port map (CLK => CLK, D => d_reg(13), Q => q_reg(13));
-    FF_PC14 : FlipFlopD port map (CLK => CLK, D => d_reg(14), Q => q_reg(14));
-    FF_PC15 : FlipFlopD port map (CLK => CLK, D => d_reg(15), Q => q_reg(15));
+    MUX1 : Mux_2a1_n port map (I0 => inc(1),  I1 => C(1),  S => W, Y => d_reg(1));
+    FF1  : FlipFlopD port map (CLK => CLK, D => d_reg(1),  Q => q_reg(1));
+
+    MUX2 : Mux_2a1_n port map (I0 => inc(2),  I1 => C(2),  S => W, Y => d_reg(2));
+    FF2  : FlipFlopD port map (CLK => CLK, D => d_reg(2),  Q => q_reg(2));
+
+    MUX3 : Mux_2a1_n port map (I0 => inc(3),  I1 => C(3),  S => W, Y => d_reg(3));
+    FF3  : FlipFlopD port map (CLK => CLK, D => d_reg(3),  Q => q_reg(3));
+
+    MUX4 : Mux_2a1_n port map (I0 => inc(4),  I1 => C(4),  S => W, Y => d_reg(4));
+    FF4  : FlipFlopD port map (CLK => CLK, D => d_reg(4),  Q => q_reg(4));
+
+    MUX5 : Mux_2a1_n port map (I0 => inc(5),  I1 => C(5),  S => W, Y => d_reg(5));
+    FF5  : FlipFlopD port map (CLK => CLK, D => d_reg(5),  Q => q_reg(5));
+
+    MUX6 : Mux_2a1_n port map (I0 => inc(6),  I1 => C(6),  S => W, Y => d_reg(6));
+    FF6  : FlipFlopD port map (CLK => CLK, D => d_reg(6),  Q => q_reg(6));
+
+    MUX7 : Mux_2a1_n port map (I0 => inc(7),  I1 => C(7),  S => W, Y => d_reg(7));
+    FF7  : FlipFlopD port map (CLK => CLK, D => d_reg(7),  Q => q_reg(7));
+
+    MUX8 : Mux_2a1_n port map (I0 => inc(8),  I1 => C(8),  S => W, Y => d_reg(8));
+    FF8  : FlipFlopD port map (CLK => CLK, D => d_reg(8),  Q => q_reg(8));
+
+    MUX9 : Mux_2a1_n port map (I0 => inc(9),  I1 => C(9),  S => W, Y => d_reg(9));
+    FF9  : FlipFlopD port map (CLK => CLK, D => d_reg(9),  Q => q_reg(9));
+
+    MUX10: Mux_2a1_n port map (I0 => inc(10), I1 => C(10), S => W, Y => d_reg(10));
+    FF10 : FlipFlopD port map (CLK => CLK, D => d_reg(10), Q => q_reg(10));
+
+    MUX11: Mux_2a1_n port map (I0 => inc(11), I1 => C(11), S => W, Y => d_reg(11));
+    FF11 : FlipFlopD port map (CLK => CLK, D => d_reg(11), Q => q_reg(11));
+
+    MUX12: Mux_2a1_n port map (I0 => inc(12), I1 => C(12), S => W, Y => d_reg(12));
+    FF12 : FlipFlopD port map (CLK => CLK, D => d_reg(12), Q => q_reg(12));
+
+    MUX13: Mux_2a1_n port map (I0 => inc(13), I1 => C(13), S => W, Y => d_reg(13));
+    FF13 : FlipFlopD port map (CLK => CLK, D => d_reg(13), Q => q_reg(13));
+
+    MUX14: Mux_2a1_n port map (I0 => inc(14), I1 => C(14), S => W, Y => d_reg(14));
+    FF14 : FlipFlopD port map (CLK => CLK, D => d_reg(14), Q => q_reg(14));
+
+    MUX15: Mux_2a1_n port map (I0 => inc(15), I1 => C(15), S => W, Y => d_reg(15));
+    FF15 : FlipFlopD port map (CLK => CLK, D => d_reg(15), Q => q_reg(15));
 
 end Arq_PC;

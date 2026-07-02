@@ -1,0 +1,16 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity Mux_2a1_n is
+    Port (
+        I0 : in  STD_LOGIC;
+        I1 : in  STD_LOGIC;
+        S  : in  STD_LOGIC;
+        Y  : out STD_LOGIC
+    );
+end Mux_2a1_n;
+
+architecture Arq_Mux_2a1n of Mux_2a1_n is
+begin
+    Y <= I0 when S = '0' else I1;
+end Arq_Mux_2a1n;
