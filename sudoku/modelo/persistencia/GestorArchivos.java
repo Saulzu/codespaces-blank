@@ -23,7 +23,6 @@ public class GestorArchivos implements Persistencia {
                     lineaTipos.append(esFija ? "F " : "M ");
                 }
 
-                // Guardamos una línea de valores y luego una línea con los tipos (F/M)
                 writer.write(lineaValores.toString().trim());
                 writer.newLine();
                 writer.write(lineaTipos.toString().trim());
@@ -57,7 +56,6 @@ public class GestorArchivos implements Persistencia {
                         nuevaCelda = new CeldaModificable(val);
                     }
 
-                    // Actualizamos la casilla del tablero actual
                     tablero.setCelda(i, j, nuevaCelda);
                 }
             }

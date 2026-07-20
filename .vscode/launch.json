@@ -6,6 +6,13 @@
       "name": "Main",
       "request": "launch",
       "mainClass": "sudoku.controlador.Main",
+      "projectName": "codespaces-blank_87d4558c"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "sudoku.controlador.Main",
       "projectName": "Repo_UAMC_5cfd8458"
     },
     {
