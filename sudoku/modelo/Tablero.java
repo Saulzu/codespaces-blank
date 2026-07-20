@@ -14,20 +14,31 @@ public class Tablero {
     public Tablero() {
         cuadricula = new Celda[9][9];
         validadores = new ArrayList<>();
-        persistencia = new GestorArchivos(); // TODO: Requiere GestorArchivos terminado
+        persistencia = new GestorArchivos();
         
-        // TODO: Agregar a la lista los 3 validadores.
-        
+        validadores.add(new ValidadorFila());
+        validadores.add(new ValidadorColumna());
+        validadores.add(new ValidadorRegion());
+
         for(int i=0; i<9; i++){
             for(int j=0; j<9; j++){
-                cuadricula[i][j] = new CeldaModificable(0); // TODO: Requiere CeldaModificable
+                cuadricula[i][j] = new CeldaModificable(0);
             }
         }
     }
 
     public void ingresarValor(int fila, int col, int valor) throws SudokuException {
-        // TODO: Si valor != 0, iterar lista de validadores.
-        // Si es válido, asignar el valor a la celda correspondiente.
+        if (esCeldaFija(fila, col)) {
+            throw new SudokuException("No se puede modificar una celda fija.");
+        }
+
+        if (valor != 0) {
+            for (Validador v : validadores) {
+                v.validar(this, fila, col, valor);
+            }
+        }
+
+        cuadricula[fila][col].setValor(valor);
     }
 
     public int getValor(int fila, int col) {
@@ -35,7 +46,7 @@ public class Tablero {
     }
     
     public boolean esCeldaFija(int fila, int col) {
-        return cuadricula[fila][col].isFija();
+        return !cuadricula[fila][col].esModificable();
     }
     
     public void setCelda(int fila, int col, Celda celda) {
