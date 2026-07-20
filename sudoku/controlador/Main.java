@@ -1,7 +1,6 @@
 package sudoku.controlador;
 
 import sudoku.modelo.Tablero;
-import sudoku.modelo.persistencia.GestorArchivos;
 import sudoku.vista.SudokuGUI;
 
 import javax.swing.SwingUtilities;
