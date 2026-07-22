@@ -7,9 +7,9 @@ entity ER is
         S  : in  STD_LOGIC;
         V  : in  STD_LOGIC;
         Z  : in  STD_LOGIC;
-        Sel: in  STD_LOGIC_VECTOR(1 downto 0);  -- S(1:0) de la instrucci髇
+        Sel: in  STD_LOGIC_VECTOR(1 downto 0);  -- S(1:0) de la instrucci贸n
         Op : in  STD_LOGIC_VECTOR(2 downto 0);  -- S(2:0) para saber si usa Ci
-        E3 : in  STD_LOGIC;                     -- Se馻l de ejecuci髇
+        E3 : in  STD_LOGIC;                     -- Se帽al de ejecuci贸n
         Ci : out STD_LOGIC
     );
 end ER;
@@ -27,11 +27,31 @@ architecture Arq_ER of ER is
     signal Mux_Out : STD_LOGIC;
     signal Usa_Ci  : STD_LOGIC;
 
+    -- Se帽ales para detectar operaciones que usan Ci
+    signal es_add, es_adc, es_sub, es_sbc : STD_LOGIC;
+
 begin
 
-    -- Detectar si la operaci髇 necesita Ci
-    Usa_Ci <= '1' when (Op = "000" or Op = "001" or Op = "010" or Op = "011") else '0';
+    -- Detectar si la operaci贸n necesita Ci
+    
+    -- ADD: Op = "000"
+    es_add <= (not Op(2)) and (not Op(1)) and (not Op(0));
+    
+    -- ADC: Op = "001"
+    es_adc <= (not Op(2)) and (not Op(1)) and Op(0);
+    
+    -- SUB: Op = "010"
+    es_sub <= (not Op(2)) and Op(1) and (not Op(0));
+    
+    -- SBC: Op = "011"
+    es_sbc <= (not Op(2)) and Op(1) and Op(0);
+    
+    -- Usa_Ci = ADD or ADC or SUB or SBC
+    Usa_Ci <= es_add or es_adc or es_sub or es_sbc;
 
+
+    -- Mux 4a1 selecciona la bandera seg煤n Sel
+ 
     MUX_INST : Mux_4a1
         port map (
             I(0) => C,
@@ -42,7 +62,9 @@ begin
             Y    => Mux_Out
         );
 
-    -- Ci solo se activa en E3 y si la operaci髇 lo necesita
-    Ci <= Mux_Out when (E3 = '1' and Usa_Ci = '1') else '0';
+
+    -- Ci solo se activa en E3 y si la operaci贸n lo necesita
+  
+    Ci <= Mux_Out and E3 and Usa_Ci;
 
 end Arq_ER;
