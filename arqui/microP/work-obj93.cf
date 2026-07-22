@@ -1,0 +1,82 @@
+v 4
+file . "microprocesador_tb.vhdl" "25b3f24c00df9a4210eb70a23153d7699e462221" "20260722010156.658":
+  entity microp_tb at 1( 0) + 0 on 63;
+  architecture arq_microp of microp_tb at 21( 563) + 0 on 64;
+file . "UC/secuenciador.vhdl" "4eb9881321fe547c612612acd33ef626722749ab" "20260722005912.330":
+  entity secuenciador at 1( 0) + 0 on 59;
+  architecture arq_sec of secuenciador at 15( 277) + 0 on 60;
+file . "UC/pc.vhdl" "e6dd4d650ab4d593600c497296c190b566b0d715" "20260722005912.330":
+  entity pc at 1( 0) + 0 on 57;
+  architecture arq_pc of pc at 13( 453) + 0 on 58;
+file . "UC/UnidC.vhdl" "9380424eefb180050c4c00089c846e55b129b09f" "20260722005912.329":
+  entity ucontrol at 1( 0) + 0 on 55;
+  architecture arq_unidadc of ucontrol at 20( 553) + 0 on 56;
+file . "UC/IR.vhdl" "a8cfacdeaba5cb63decc55fc7a73db0a1a59433f" "20260722005912.328":
+  entity ir at 1( 0) + 0 on 53;
+  architecture arq_ir of ir at 13( 466) + 0 on 54;
+file . "componentes/sumador_16b.vhdl" "b574a85e0314888b8848e200f4b9fb8cd16ac0fb" "20260722005903.601":
+  entity sumador_16b at 1( 0) + 0 on 29;
+  architecture arq_sumador_16b of sumador_16b at 14( 488) + 0 on 30;
+file . "componentes/mux8a1.vhdl" "3f76320b1f0b6fda9675438a782fd7f310766fe6" "20260722005903.601":
+  entity mux8a1 at 1( 0) + 0 on 27;
+  architecture arq_mux_8a1 of mux8a1 at 12( 248) + 0 on 28;
+file . "componentes/mux4a1.vhdl" "6520dc8db0af14ae855eb02449666a9af9d8bb36" "20260722005903.600":
+  entity mux_4a1 at 1( 0) + 0 on 25;
+  architecture arq_mux_4a1 of mux_4a1 at 12( 374) + 0 on 26;
+file . "componentes/mux2a1_8b.vhdl" "3c2dcf5c85e76b3dc7dd6030488112d899a431fe" "20260722005903.599":
+  entity mux_2a1_8b at 1( 0) + 0 on 23;
+  architecture arq_mux_2a1_8b of mux_2a1_8b at 13( 397) + 0 on 24;
+file . "componentes/mux2a1_16b.vhdl" "db4327819cd6462915b9e7198214e0669f3e99e6" "20260722005903.599":
+  entity mux_2a1_16b at 1( 0) + 0 on 21;
+  architecture arq_mux_2a1_16b of mux_2a1_16b at 13( 370) + 0 on 22;
+file . "componentes/mux2a1.vhdl" "1cff6212f308ef61d527d29495563d4ea4e793c9" "20260722005903.599":
+  entity mux_2a1 at 1( 0) + 0 on 19;
+  architecture arq_mux_2a1 of mux_2a1 at 12( 306) + 0 on 20;
+file . "componentes/deco3a8.vhdl" "898d6104f7f1191eb9a298dc2702ec4e25267d6d" "20260722005903.599":
+  entity deco3a8 at 1( 0) + 0 on 17;
+  architecture arq_deco_3a8 of deco3a8 at 11( 248) + 0 on 18;
+file . "componentes/deco2a4.vhdl" "d7687d533879e7683f159a8f5aa122bcc9bb9b2a" "20260722005903.598":
+  entity deco2a4 at 1( 0) + 0 on 15;
+  architecture arq_deco2a4 of deco2a4 at 11( 255) + 0 on 16;
+file . "componentes/Reg_4bits.vhdl" "cfc03ddfbf1b8fd4c79a6d6c33c23140b111c4aa" "20260722005903.598":
+  entity reg_4bits at 1( 0) + 0 on 13;
+  architecture arq_reg_4bits of reg_4bits at 12( 222) + 0 on 14;
+file . "componentes/FFD.vhdl" "b39e0e36dd4dc1913ce3994a4a16feeb4ddc5c1b" "20260722005903.598":
+  entity flipflopd at 1( 0) + 0 on 11;
+  architecture arq_flipflopd of flipflopd at 12( 317) + 0 on 12;
+file . "Datapath/ER.vhdl" "51aaaa57e0a552b114dbfd292a122f6644cd21f8" "20260722005907.103":
+  entity er at 1( 0) + 0 on 31;
+  architecture arq_er of er at 17( 448) + 0 on 32;
+file . "Datapath/LSaltos.vhdl" "24b79a2091b2875a10b7720138b5fa11fc37b787" "20260722005907.104":
+  entity logicsaltos at 1( 0) + 0 on 33;
+  architecture arq_logica_saltos of logicsaltos at 18( 738) + 0 on 34;
+file . "Datapath/UA.vhdl" "c23fee642a0aa045a70c831c2f2e6fa6e0067828" "20260722005907.104":
+  entity unidad_aritmetica at 1( 0) + 0 on 35;
+  architecture arq_unidad_aritmetica of unidad_aritmetica at 16( 646) + 0 on 36;
+file . "Datapath/UF.vhdl" "a90947e319bc93a673a22065195231a0440ea647" "20260722005907.105":
+  entity unidad_funcional at 1( 0) + 0 on 37;
+  architecture arq_unidad_funcional of unidad_funcional at 18( 878) + 0 on 38;
+file . "Datapath/UL.vhdl" "d235fc2c04cfcfa251464544a7ce30c391899134" "20260722005907.106":
+  entity unidad_logica at 1( 0) + 0 on 39;
+  architecture arq_unidad_logica of unidad_logica at 15( 667) + 0 on 40;
+file . "Datapath/alu.vhdl" "41188074e89afd7d3beadb593cbbaf07101d0926" "20260722005907.107":
+  entity alu at 1( 0) + 0 on 41;
+  architecture arq_alu of alu at 18( 818) + 0 on 42;
+file . "Datapath/datapath.vhdl" "93d1435ac40e9fefdf26495ae1e0f5e691874beb" "20260722005907.107":
+  entity datapath at 1( 0) + 0 on 43;
+  architecture arq_datap of datapath at 32( 923) + 0 on 44;
+file . "Datapath/reg8b.vhdl" "e7d21310c7e7199e8cfacbeede887a2cf99f9ccc" "20260722005907.107":
+  entity reg8b at 1( 0) + 0 on 45;
+  architecture arq_reg8b of reg8b at 13( 450) + 0 on 46;
+file . "Datapath/shifter.vhdl" "68f81ca7559cb86b4226f01c9dad63dfa6ef8dcf" "20260722005907.108":
+  entity shifterr at 1( 0) + 0 on 47;
+  architecture arq_shifterr of shifterr at 14( 600) + 0 on 48;
+file . "Datapath/sumador.vhdl" "ca1636862b7ddedc30541a904a3996a47f98fe46" "20260722005907.109":
+  entity sumador_completo at 1( 0) + 0 on 49;
+  architecture arq_sumador_completo of sumador_completo at 14( 390) + 0 on 50;
+file . "Datapath/unit_reg.vhdl" "7aaa2b8d73fa5ee88261ca0c37bc8edd39fdfd68" "20260722005907.109":
+  entity unit_reg at 1( 0) + 0 on 51;
+  architecture arq_unit_reg of unit_reg at 17( 767) + 0 on 52;
+file . "microprocesador.vhdl" "33fd622a8966204f8fb92d660f7e089e8ebcf9aa" "20260722005916.554":
+  entity microp at 1( 0) + 0 on 61;
+  architecture arq_microp of microp at 21( 557) + 0 on 62;

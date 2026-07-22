@@ -1,0 +1,2255 @@
+$date
+  Wed Jul 22 01:22:41 2026
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module microp $end
+$var reg 1 ! clk $end
+$var reg 1 " rst $end
+$var reg 26 # instruction_bus[25:0] $end
+$var reg 16 $ pc_address[15:0] $end
+$var reg 8 % data_read[7:0] $end
+$var reg 8 & data_address[7:0] $end
+$var reg 8 ' data_write[7:0] $end
+$var reg 1 ( mem_write $end
+$var reg 26 ) ir_internal[25:0] $end
+$var reg 16 * pc_internal[15:0] $end
+$var reg 1 + c_out $end
+$var reg 1 , s_out $end
+$var reg 1 - v_out $end
+$var reg 1 . z_out $end
+$var reg 1 / jump_signal $end
+$var reg 1 0 e0 $end
+$var reg 1 1 e1 $end
+$var reg 1 2 e2 $end
+$var reg 1 3 e3 $end
+$var reg 1 4 w_ur $end
+$var reg 1 5 mw $end
+$var reg 1 6 m1 $end
+$var reg 1 7 m2 $end
+$var reg 3 8 dc[2:0] $end
+$var reg 3 9 da[2:0] $end
+$var reg 3 : db[2:0] $end
+$var reg 5 ; s[4:0] $end
+$var reg 8 < inm[7:0] $end
+$var reg 8 = data_addr_internal[7:0] $end
+$var reg 8 > data_write_internal[7:0] $end
+$scope module secuenciador_inst $end
+$var reg 1 ? clk $end
+$var reg 1 @ rst $end
+$var reg 1 A e0 $end
+$var reg 1 B e1 $end
+$var reg 1 C e2 $end
+$var reg 1 D e3 $end
+$var reg 4 E q_reg[3:0] $end
+$var reg 4 F d_reg[3:0] $end
+$scope module reg_estado $end
+$var reg 1 G clk $end
+$var reg 4 H d[3:0] $end
+$var reg 4 I q[3:0] $end
+$scope module ff0 $end
+$var reg 1 J clk $end
+$var reg 1 K d $end
+$var reg 1 L q $end
+$upscope $end
+$scope module ff1 $end
+$var reg 1 M clk $end
+$var reg 1 N d $end
+$var reg 1 O q $end
+$upscope $end
+$scope module ff2 $end
+$var reg 1 P clk $end
+$var reg 1 Q d $end
+$var reg 1 R q $end
+$upscope $end
+$scope module ff3 $end
+$var reg 1 S clk $end
+$var reg 1 T d $end
+$var reg 1 U q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module uc_inst $end
+$var reg 1 V clk $end
+$var reg 1 W e0 $end
+$var reg 1 X e1 $end
+$var reg 1 Y e2 $end
+$var reg 1 Z e3 $end
+$var reg 26 [ instruction[25:0] $end
+$var reg 16 \ pc_out[15:0] $end
+$var reg 26 ] ir_out[25:0] $end
+$var reg 1 ^ mw_output $end
+$var reg 1 _ pc_load $end
+$var reg 1 ` ir_load $end
+$var reg 16 a pc_next[15:0] $end
+$var reg 16 b pc_current[15:0] $end
+$var reg 26 c ir_current[25:0] $end
+$scope module pc_inst $end
+$var reg 1 d clk $end
+$var reg 1 e w $end
+$var reg 16 f c[15:0] $end
+$var reg 16 g q[15:0] $end
+$var reg 16 h q_reg[15:0] $end
+$var reg 16 i d_reg[15:0] $end
+$var reg 16 j inc[15:0] $end
+$var reg 16 k carry[15:0] $end
+$var reg 2 l sel_mux_pc0[1:0] $end
+$var reg 2 m sel_mux_pc1[1:0] $end
+$var reg 2 n sel_mux_pc2[1:0] $end
+$var reg 2 o sel_mux_pc3[1:0] $end
+$var reg 2 p sel_mux_pc4[1:0] $end
+$var reg 2 q sel_mux_pc5[1:0] $end
+$var reg 2 r sel_mux_pc6[1:0] $end
+$var reg 2 s sel_mux_pc7[1:0] $end
+$var reg 2 t sel_mux_pc8[1:0] $end
+$var reg 2 u sel_mux_pc9[1:0] $end
+$var reg 2 v sel_mux_pc10[1:0] $end
+$var reg 2 w sel_mux_pc11[1:0] $end
+$var reg 2 x sel_mux_pc12[1:0] $end
+$var reg 2 y sel_mux_pc13[1:0] $end
+$var reg 2 z sel_mux_pc14[1:0] $end
+$var reg 2 { sel_mux_pc15[1:0] $end
+$scope module mux0 $end
+$var reg 2 | i[1:0] $end
+$var reg 1 } s $end
+$var reg 1 !" y $end
+$upscope $end
+$scope module ff0 $end
+$var reg 1 "" clk $end
+$var reg 1 #" d $end
+$var reg 1 $" q $end
+$upscope $end
+$scope module mux1 $end
+$var reg 2 %" i[1:0] $end
+$var reg 1 &" s $end
+$var reg 1 '" y $end
+$upscope $end
+$scope module ff1 $end
+$var reg 1 (" clk $end
+$var reg 1 )" d $end
+$var reg 1 *" q $end
+$upscope $end
+$scope module mux2 $end
+$var reg 2 +" i[1:0] $end
+$var reg 1 ," s $end
+$var reg 1 -" y $end
+$upscope $end
+$scope module ff2 $end
+$var reg 1 ." clk $end
+$var reg 1 /" d $end
+$var reg 1 0" q $end
+$upscope $end
+$scope module mux3 $end
+$var reg 2 1" i[1:0] $end
+$var reg 1 2" s $end
+$var reg 1 3" y $end
+$upscope $end
+$scope module ff3 $end
+$var reg 1 4" clk $end
+$var reg 1 5" d $end
+$var reg 1 6" q $end
+$upscope $end
+$scope module mux4 $end
+$var reg 2 7" i[1:0] $end
+$var reg 1 8" s $end
+$var reg 1 9" y $end
+$upscope $end
+$scope module ff4 $end
+$var reg 1 :" clk $end
+$var reg 1 ;" d $end
+$var reg 1 <" q $end
+$upscope $end
+$scope module mux5 $end
+$var reg 2 =" i[1:0] $end
+$var reg 1 >" s $end
+$var reg 1 ?" y $end
+$upscope $end
+$scope module ff5 $end
+$var reg 1 @" clk $end
+$var reg 1 A" d $end
+$var reg 1 B" q $end
+$upscope $end
+$scope module mux6 $end
+$var reg 2 C" i[1:0] $end
+$var reg 1 D" s $end
+$var reg 1 E" y $end
+$upscope $end
+$scope module ff6 $end
+$var reg 1 F" clk $end
+$var reg 1 G" d $end
+$var reg 1 H" q $end
+$upscope $end
+$scope module mux7 $end
+$var reg 2 I" i[1:0] $end
+$var reg 1 J" s $end
+$var reg 1 K" y $end
+$upscope $end
+$scope module ff7 $end
+$var reg 1 L" clk $end
+$var reg 1 M" d $end
+$var reg 1 N" q $end
+$upscope $end
+$scope module mux8 $end
+$var reg 2 O" i[1:0] $end
+$var reg 1 P" s $end
+$var reg 1 Q" y $end
+$upscope $end
+$scope module ff8 $end
+$var reg 1 R" clk $end
+$var reg 1 S" d $end
+$var reg 1 T" q $end
+$upscope $end
+$scope module mux9 $end
+$var reg 2 U" i[1:0] $end
+$var reg 1 V" s $end
+$var reg 1 W" y $end
+$upscope $end
+$scope module ff9 $end
+$var reg 1 X" clk $end
+$var reg 1 Y" d $end
+$var reg 1 Z" q $end
+$upscope $end
+$scope module mux10 $end
+$var reg 2 [" i[1:0] $end
+$var reg 1 \" s $end
+$var reg 1 ]" y $end
+$upscope $end
+$scope module ff10 $end
+$var reg 1 ^" clk $end
+$var reg 1 _" d $end
+$var reg 1 `" q $end
+$upscope $end
+$scope module mux11 $end
+$var reg 2 a" i[1:0] $end
+$var reg 1 b" s $end
+$var reg 1 c" y $end
+$upscope $end
+$scope module ff11 $end
+$var reg 1 d" clk $end
+$var reg 1 e" d $end
+$var reg 1 f" q $end
+$upscope $end
+$scope module mux12 $end
+$var reg 2 g" i[1:0] $end
+$var reg 1 h" s $end
+$var reg 1 i" y $end
+$upscope $end
+$scope module ff12 $end
+$var reg 1 j" clk $end
+$var reg 1 k" d $end
+$var reg 1 l" q $end
+$upscope $end
+$scope module mux13 $end
+$var reg 2 m" i[1:0] $end
+$var reg 1 n" s $end
+$var reg 1 o" y $end
+$upscope $end
+$scope module ff13 $end
+$var reg 1 p" clk $end
+$var reg 1 q" d $end
+$var reg 1 r" q $end
+$upscope $end
+$scope module mux14 $end
+$var reg 2 s" i[1:0] $end
+$var reg 1 t" s $end
+$var reg 1 u" y $end
+$upscope $end
+$scope module ff14 $end
+$var reg 1 v" clk $end
+$var reg 1 w" d $end
+$var reg 1 x" q $end
+$upscope $end
+$scope module mux15 $end
+$var reg 2 y" i[1:0] $end
+$var reg 1 z" s $end
+$var reg 1 {" y $end
+$upscope $end
+$scope module ff15 $end
+$var reg 1 |" clk $end
+$var reg 1 }" d $end
+$var reg 1 !# q $end
+$upscope $end
+$upscope $end
+$scope module ir_inst $end
+$var reg 1 "# clk $end
+$var reg 1 ## w $end
+$var reg 26 $# d[25:0] $end
+$var reg 26 %# q[25:0] $end
+$var reg 26 &# q_reg[25:0] $end
+$var reg 26 '# d_reg[25:0] $end
+$var reg 1 (# w_n $end
+$scope module ff_ir0 $end
+$var reg 1 )# clk $end
+$var reg 1 *# d $end
+$var reg 1 +# q $end
+$upscope $end
+$scope module ff_ir1 $end
+$var reg 1 ,# clk $end
+$var reg 1 -# d $end
+$var reg 1 .# q $end
+$upscope $end
+$scope module ff_ir2 $end
+$var reg 1 /# clk $end
+$var reg 1 0# d $end
+$var reg 1 1# q $end
+$upscope $end
+$scope module ff_ir3 $end
+$var reg 1 2# clk $end
+$var reg 1 3# d $end
+$var reg 1 4# q $end
+$upscope $end
+$scope module ff_ir4 $end
+$var reg 1 5# clk $end
+$var reg 1 6# d $end
+$var reg 1 7# q $end
+$upscope $end
+$scope module ff_ir5 $end
+$var reg 1 8# clk $end
+$var reg 1 9# d $end
+$var reg 1 :# q $end
+$upscope $end
+$scope module ff_ir6 $end
+$var reg 1 ;# clk $end
+$var reg 1 <# d $end
+$var reg 1 =# q $end
+$upscope $end
+$scope module ff_ir7 $end
+$var reg 1 ># clk $end
+$var reg 1 ?# d $end
+$var reg 1 @# q $end
+$upscope $end
+$scope module ff_ir8 $end
+$var reg 1 A# clk $end
+$var reg 1 B# d $end
+$var reg 1 C# q $end
+$upscope $end
+$scope module ff_ir9 $end
+$var reg 1 D# clk $end
+$var reg 1 E# d $end
+$var reg 1 F# q $end
+$upscope $end
+$scope module ff_ir10 $end
+$var reg 1 G# clk $end
+$var reg 1 H# d $end
+$var reg 1 I# q $end
+$upscope $end
+$scope module ff_ir11 $end
+$var reg 1 J# clk $end
+$var reg 1 K# d $end
+$var reg 1 L# q $end
+$upscope $end
+$scope module ff_ir12 $end
+$var reg 1 M# clk $end
+$var reg 1 N# d $end
+$var reg 1 O# q $end
+$upscope $end
+$scope module ff_ir13 $end
+$var reg 1 P# clk $end
+$var reg 1 Q# d $end
+$var reg 1 R# q $end
+$upscope $end
+$scope module ff_ir14 $end
+$var reg 1 S# clk $end
+$var reg 1 T# d $end
+$var reg 1 U# q $end
+$upscope $end
+$scope module ff_ir15 $end
+$var reg 1 V# clk $end
+$var reg 1 W# d $end
+$var reg 1 X# q $end
+$upscope $end
+$scope module ff_ir16 $end
+$var reg 1 Y# clk $end
+$var reg 1 Z# d $end
+$var reg 1 [# q $end
+$upscope $end
+$scope module ff_ir17 $end
+$var reg 1 \# clk $end
+$var reg 1 ]# d $end
+$var reg 1 ^# q $end
+$upscope $end
+$scope module ff_ir18 $end
+$var reg 1 _# clk $end
+$var reg 1 `# d $end
+$var reg 1 a# q $end
+$upscope $end
+$scope module ff_ir19 $end
+$var reg 1 b# clk $end
+$var reg 1 c# d $end
+$var reg 1 d# q $end
+$upscope $end
+$scope module ff_ir20 $end
+$var reg 1 e# clk $end
+$var reg 1 f# d $end
+$var reg 1 g# q $end
+$upscope $end
+$scope module ff_ir21 $end
+$var reg 1 h# clk $end
+$var reg 1 i# d $end
+$var reg 1 j# q $end
+$upscope $end
+$scope module ff_ir22 $end
+$var reg 1 k# clk $end
+$var reg 1 l# d $end
+$var reg 1 m# q $end
+$upscope $end
+$scope module ff_ir23 $end
+$var reg 1 n# clk $end
+$var reg 1 o# d $end
+$var reg 1 p# q $end
+$upscope $end
+$scope module ff_ir24 $end
+$var reg 1 q# clk $end
+$var reg 1 r# d $end
+$var reg 1 s# q $end
+$upscope $end
+$scope module ff_ir25 $end
+$var reg 1 t# clk $end
+$var reg 1 u# d $end
+$var reg 1 v# q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module datapath_inst $end
+$var reg 1 w# clk $end
+$var reg 1 x# w_ur $end
+$var reg 3 y# dc[2:0] $end
+$var reg 3 z# da[2:0] $end
+$var reg 3 {# db[2:0] $end
+$var reg 5 |# s[4:0] $end
+$var reg 8 }# inm[7:0] $end
+$var reg 1 !$ m1 $end
+$var reg 1 "$ m2 $end
+$var reg 1 #$ e3 $end
+$var reg 8 $$ data_read[7:0] $end
+$var reg 8 %$ data_address[7:0] $end
+$var reg 8 &$ data_write[7:0] $end
+$var reg 1 '$ c $end
+$var reg 1 ($ s_flag $end
+$var reg 1 )$ v $end
+$var reg 1 *$ z $end
+$var reg 8 +$ ur_a[7:0] $end
+$var reg 8 ,$ ur_b[7:0] $end
+$var reg 8 -$ muxa_out[7:0] $end
+$var reg 8 .$ muxb_out[7:0] $end
+$var reg 8 /$ uf_r[7:0] $end
+$var reg 8 0$ reg_write[7:0] $end
+$var reg 1 1$ ci $end
+$var reg 1 2$ c_int $end
+$var reg 1 3$ s_int $end
+$var reg 1 4$ v_int $end
+$var reg 1 5$ z_int $end
+$scope module ur_inst $end
+$var reg 1 6$ clk $end
+$var reg 8 7$ c[7:0] $end
+$var reg 3 8$ dc[2:0] $end
+$var reg 3 9$ da[2:0] $end
+$var reg 3 :$ db[2:0] $end
+$var reg 1 ;$ l_or $end
+$var reg 8 <$ a[7:0] $end
+$var reg 8 =$ b[7:0] $end
+$var reg 8 >$ deco_out[7:0] $end
+$var reg 8 ?$ w[7:0] $end
+$var reg 8 @$ r0[7:0] $end
+$var reg 8 A$ r1[7:0] $end
+$var reg 8 B$ r2[7:0] $end
+$var reg 8 C$ r3[7:0] $end
+$var reg 8 D$ r4[7:0] $end
+$var reg 8 E$ r5[7:0] $end
+$var reg 8 F$ r6[7:0] $end
+$var reg 8 G$ r7[7:0] $end
+$scope module deco_inst $end
+$var reg 3 H$ s[2:0] $end
+$var reg 8 I$ y[7:0] $end
+$upscope $end
+$scope module reg_r0 $end
+$var reg 1 J$ clk $end
+$var reg 1 K$ w $end
+$var reg 8 L$ d[7:0] $end
+$var reg 8 M$ q[7:0] $end
+$scope module reg_estructural(0) $end
+$scope module bit_x $end
+$var reg 1 N$ clk $end
+$var reg 1 O$ d $end
+$var reg 1 P$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(1) $end
+$scope module bit_x $end
+$var reg 1 Q$ clk $end
+$var reg 1 R$ d $end
+$var reg 1 S$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(2) $end
+$scope module bit_x $end
+$var reg 1 T$ clk $end
+$var reg 1 U$ d $end
+$var reg 1 V$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(3) $end
+$scope module bit_x $end
+$var reg 1 W$ clk $end
+$var reg 1 X$ d $end
+$var reg 1 Y$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(4) $end
+$scope module bit_x $end
+$var reg 1 Z$ clk $end
+$var reg 1 [$ d $end
+$var reg 1 \$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(5) $end
+$scope module bit_x $end
+$var reg 1 ]$ clk $end
+$var reg 1 ^$ d $end
+$var reg 1 _$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(6) $end
+$scope module bit_x $end
+$var reg 1 `$ clk $end
+$var reg 1 a$ d $end
+$var reg 1 b$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(7) $end
+$scope module bit_x $end
+$var reg 1 c$ clk $end
+$var reg 1 d$ d $end
+$var reg 1 e$ q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module reg_r1 $end
+$var reg 1 f$ clk $end
+$var reg 1 g$ w $end
+$var reg 8 h$ d[7:0] $end
+$var reg 8 i$ q[7:0] $end
+$scope module reg_estructural(0) $end
+$scope module bit_x $end
+$var reg 1 j$ clk $end
+$var reg 1 k$ d $end
+$var reg 1 l$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(1) $end
+$scope module bit_x $end
+$var reg 1 m$ clk $end
+$var reg 1 n$ d $end
+$var reg 1 o$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(2) $end
+$scope module bit_x $end
+$var reg 1 p$ clk $end
+$var reg 1 q$ d $end
+$var reg 1 r$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(3) $end
+$scope module bit_x $end
+$var reg 1 s$ clk $end
+$var reg 1 t$ d $end
+$var reg 1 u$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(4) $end
+$scope module bit_x $end
+$var reg 1 v$ clk $end
+$var reg 1 w$ d $end
+$var reg 1 x$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(5) $end
+$scope module bit_x $end
+$var reg 1 y$ clk $end
+$var reg 1 z$ d $end
+$var reg 1 {$ q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(6) $end
+$scope module bit_x $end
+$var reg 1 |$ clk $end
+$var reg 1 }$ d $end
+$var reg 1 !% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(7) $end
+$scope module bit_x $end
+$var reg 1 "% clk $end
+$var reg 1 #% d $end
+$var reg 1 $% q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module reg_r2 $end
+$var reg 1 %% clk $end
+$var reg 1 &% w $end
+$var reg 8 '% d[7:0] $end
+$var reg 8 (% q[7:0] $end
+$scope module reg_estructural(0) $end
+$scope module bit_x $end
+$var reg 1 )% clk $end
+$var reg 1 *% d $end
+$var reg 1 +% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(1) $end
+$scope module bit_x $end
+$var reg 1 ,% clk $end
+$var reg 1 -% d $end
+$var reg 1 .% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(2) $end
+$scope module bit_x $end
+$var reg 1 /% clk $end
+$var reg 1 0% d $end
+$var reg 1 1% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(3) $end
+$scope module bit_x $end
+$var reg 1 2% clk $end
+$var reg 1 3% d $end
+$var reg 1 4% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(4) $end
+$scope module bit_x $end
+$var reg 1 5% clk $end
+$var reg 1 6% d $end
+$var reg 1 7% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(5) $end
+$scope module bit_x $end
+$var reg 1 8% clk $end
+$var reg 1 9% d $end
+$var reg 1 :% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(6) $end
+$scope module bit_x $end
+$var reg 1 ;% clk $end
+$var reg 1 <% d $end
+$var reg 1 =% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(7) $end
+$scope module bit_x $end
+$var reg 1 >% clk $end
+$var reg 1 ?% d $end
+$var reg 1 @% q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module reg_r3 $end
+$var reg 1 A% clk $end
+$var reg 1 B% w $end
+$var reg 8 C% d[7:0] $end
+$var reg 8 D% q[7:0] $end
+$scope module reg_estructural(0) $end
+$scope module bit_x $end
+$var reg 1 E% clk $end
+$var reg 1 F% d $end
+$var reg 1 G% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(1) $end
+$scope module bit_x $end
+$var reg 1 H% clk $end
+$var reg 1 I% d $end
+$var reg 1 J% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(2) $end
+$scope module bit_x $end
+$var reg 1 K% clk $end
+$var reg 1 L% d $end
+$var reg 1 M% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(3) $end
+$scope module bit_x $end
+$var reg 1 N% clk $end
+$var reg 1 O% d $end
+$var reg 1 P% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(4) $end
+$scope module bit_x $end
+$var reg 1 Q% clk $end
+$var reg 1 R% d $end
+$var reg 1 S% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(5) $end
+$scope module bit_x $end
+$var reg 1 T% clk $end
+$var reg 1 U% d $end
+$var reg 1 V% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(6) $end
+$scope module bit_x $end
+$var reg 1 W% clk $end
+$var reg 1 X% d $end
+$var reg 1 Y% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(7) $end
+$scope module bit_x $end
+$var reg 1 Z% clk $end
+$var reg 1 [% d $end
+$var reg 1 \% q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module reg_r4 $end
+$var reg 1 ]% clk $end
+$var reg 1 ^% w $end
+$var reg 8 _% d[7:0] $end
+$var reg 8 `% q[7:0] $end
+$scope module reg_estructural(0) $end
+$scope module bit_x $end
+$var reg 1 a% clk $end
+$var reg 1 b% d $end
+$var reg 1 c% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(1) $end
+$scope module bit_x $end
+$var reg 1 d% clk $end
+$var reg 1 e% d $end
+$var reg 1 f% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(2) $end
+$scope module bit_x $end
+$var reg 1 g% clk $end
+$var reg 1 h% d $end
+$var reg 1 i% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(3) $end
+$scope module bit_x $end
+$var reg 1 j% clk $end
+$var reg 1 k% d $end
+$var reg 1 l% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(4) $end
+$scope module bit_x $end
+$var reg 1 m% clk $end
+$var reg 1 n% d $end
+$var reg 1 o% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(5) $end
+$scope module bit_x $end
+$var reg 1 p% clk $end
+$var reg 1 q% d $end
+$var reg 1 r% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(6) $end
+$scope module bit_x $end
+$var reg 1 s% clk $end
+$var reg 1 t% d $end
+$var reg 1 u% q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(7) $end
+$scope module bit_x $end
+$var reg 1 v% clk $end
+$var reg 1 w% d $end
+$var reg 1 x% q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module reg_r5 $end
+$var reg 1 y% clk $end
+$var reg 1 z% w $end
+$var reg 8 {% d[7:0] $end
+$var reg 8 |% q[7:0] $end
+$scope module reg_estructural(0) $end
+$scope module bit_x $end
+$var reg 1 }% clk $end
+$var reg 1 !& d $end
+$var reg 1 "& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(1) $end
+$scope module bit_x $end
+$var reg 1 #& clk $end
+$var reg 1 $& d $end
+$var reg 1 %& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(2) $end
+$scope module bit_x $end
+$var reg 1 && clk $end
+$var reg 1 '& d $end
+$var reg 1 (& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(3) $end
+$scope module bit_x $end
+$var reg 1 )& clk $end
+$var reg 1 *& d $end
+$var reg 1 +& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(4) $end
+$scope module bit_x $end
+$var reg 1 ,& clk $end
+$var reg 1 -& d $end
+$var reg 1 .& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(5) $end
+$scope module bit_x $end
+$var reg 1 /& clk $end
+$var reg 1 0& d $end
+$var reg 1 1& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(6) $end
+$scope module bit_x $end
+$var reg 1 2& clk $end
+$var reg 1 3& d $end
+$var reg 1 4& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(7) $end
+$scope module bit_x $end
+$var reg 1 5& clk $end
+$var reg 1 6& d $end
+$var reg 1 7& q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module reg_r6 $end
+$var reg 1 8& clk $end
+$var reg 1 9& w $end
+$var reg 8 :& d[7:0] $end
+$var reg 8 ;& q[7:0] $end
+$scope module reg_estructural(0) $end
+$scope module bit_x $end
+$var reg 1 <& clk $end
+$var reg 1 =& d $end
+$var reg 1 >& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(1) $end
+$scope module bit_x $end
+$var reg 1 ?& clk $end
+$var reg 1 @& d $end
+$var reg 1 A& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(2) $end
+$scope module bit_x $end
+$var reg 1 B& clk $end
+$var reg 1 C& d $end
+$var reg 1 D& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(3) $end
+$scope module bit_x $end
+$var reg 1 E& clk $end
+$var reg 1 F& d $end
+$var reg 1 G& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(4) $end
+$scope module bit_x $end
+$var reg 1 H& clk $end
+$var reg 1 I& d $end
+$var reg 1 J& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(5) $end
+$scope module bit_x $end
+$var reg 1 K& clk $end
+$var reg 1 L& d $end
+$var reg 1 M& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(6) $end
+$scope module bit_x $end
+$var reg 1 N& clk $end
+$var reg 1 O& d $end
+$var reg 1 P& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(7) $end
+$scope module bit_x $end
+$var reg 1 Q& clk $end
+$var reg 1 R& d $end
+$var reg 1 S& q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module reg_r7 $end
+$var reg 1 T& clk $end
+$var reg 1 U& w $end
+$var reg 8 V& d[7:0] $end
+$var reg 8 W& q[7:0] $end
+$scope module reg_estructural(0) $end
+$scope module bit_x $end
+$var reg 1 X& clk $end
+$var reg 1 Y& d $end
+$var reg 1 Z& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(1) $end
+$scope module bit_x $end
+$var reg 1 [& clk $end
+$var reg 1 \& d $end
+$var reg 1 ]& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(2) $end
+$scope module bit_x $end
+$var reg 1 ^& clk $end
+$var reg 1 _& d $end
+$var reg 1 `& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(3) $end
+$scope module bit_x $end
+$var reg 1 a& clk $end
+$var reg 1 b& d $end
+$var reg 1 c& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(4) $end
+$scope module bit_x $end
+$var reg 1 d& clk $end
+$var reg 1 e& d $end
+$var reg 1 f& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(5) $end
+$scope module bit_x $end
+$var reg 1 g& clk $end
+$var reg 1 h& d $end
+$var reg 1 i& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(6) $end
+$scope module bit_x $end
+$var reg 1 j& clk $end
+$var reg 1 k& d $end
+$var reg 1 l& q $end
+$upscope $end
+$upscope $end
+$scope module reg_estructural(7) $end
+$scope module bit_x $end
+$var reg 1 m& clk $end
+$var reg 1 n& d $end
+$var reg 1 o& q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module mux_a_inst $end
+$var reg 8 p& i0[7:0] $end
+$var reg 8 q& i1[7:0] $end
+$var reg 8 r& i2[7:0] $end
+$var reg 8 s& i3[7:0] $end
+$var reg 8 t& i4[7:0] $end
+$var reg 8 u& i5[7:0] $end
+$var reg 8 v& i6[7:0] $end
+$var reg 8 w& i7[7:0] $end
+$var reg 3 x& s[2:0] $end
+$var reg 8 y& y[7:0] $end
+$var reg 1 z& d0 $end
+$var reg 1 {& d1 $end
+$var reg 1 |& d2 $end
+$var reg 1 }& d3 $end
+$var reg 1 !' d4 $end
+$var reg 1 "' d5 $end
+$var reg 1 #' d6 $end
+$var reg 1 $' d7 $end
+$upscope $end
+$scope module mux_b_inst $end
+$var reg 8 %' i0[7:0] $end
+$var reg 8 &' i1[7:0] $end
+$var reg 8 '' i2[7:0] $end
+$var reg 8 (' i3[7:0] $end
+$var reg 8 )' i4[7:0] $end
+$var reg 8 *' i5[7:0] $end
+$var reg 8 +' i6[7:0] $end
+$var reg 8 ,' i7[7:0] $end
+$var reg 3 -' s[2:0] $end
+$var reg 8 .' y[7:0] $end
+$var reg 1 /' d0 $end
+$var reg 1 0' d1 $end
+$var reg 1 1' d2 $end
+$var reg 1 2' d3 $end
+$var reg 1 3' d4 $end
+$var reg 1 4' d5 $end
+$var reg 1 5' d6 $end
+$var reg 1 6' d7 $end
+$upscope $end
+$upscope $end
+$scope module mux_a_inst $end
+$var reg 8 7' i0[7:0] $end
+$var reg 8 8' i1[7:0] $end
+$var reg 1 9' s $end
+$var reg 8 :' y[7:0] $end
+$upscope $end
+$scope module mux_b_inst $end
+$var reg 8 ;' i0[7:0] $end
+$var reg 8 <' i1[7:0] $end
+$var reg 1 =' s $end
+$var reg 8 >' y[7:0] $end
+$upscope $end
+$scope module uf_inst $end
+$var reg 8 ?' a[7:0] $end
+$var reg 8 @' b[7:0] $end
+$var reg 5 A' s[4:0] $end
+$var reg 1 B' ci $end
+$var reg 8 C' r[7:0] $end
+$var reg 1 D' c $end
+$var reg 1 E' v $end
+$var reg 1 F' s_flag $end
+$var reg 1 G' z $end
+$var reg 8 H' r_alu[7:0] $end
+$var reg 8 I' r_shifter[7:0] $end
+$var reg 1 J' alu_c $end
+$var reg 1 K' alu_v $end
+$var reg 1 L' shift_ci $end
+$var reg 1 M' shift_cd $end
+$var reg 8 N' internal_r[7:0] $end
+$var reg 4 O' mux_c_inputs[3:0] $end
+$var reg 2 P' selector_c[1:0] $end
+$var reg 2 Q' sel_mux_r0[1:0] $end
+$var reg 2 R' sel_mux_r1[1:0] $end
+$var reg 2 S' sel_mux_r2[1:0] $end
+$var reg 2 T' sel_mux_r3[1:0] $end
+$var reg 2 U' sel_mux_r4[1:0] $end
+$var reg 2 V' sel_mux_r5[1:0] $end
+$var reg 2 W' sel_mux_r6[1:0] $end
+$var reg 2 X' sel_mux_r7[1:0] $end
+$var reg 2 Y' sel_mux_v_flag[1:0] $end
+$scope module alu_block $end
+$var reg 8 Z' a[7:0] $end
+$var reg 8 [' b[7:0] $end
+$var reg 4 \' s[3:0] $end
+$var reg 1 ]' ci $end
+$var reg 8 ^' r[7:0] $end
+$var reg 1 _' c $end
+$var reg 1 `' v $end
+$var reg 1 a' s_flag $end
+$var reg 1 b' z $end
+$var reg 8 c' r_ua[7:0] $end
+$var reg 8 d' r_ul[7:0] $end
+$var reg 8 e' internal_r[7:0] $end
+$var reg 2 f' sel_mux_r0[1:0] $end
+$var reg 2 g' sel_mux_r1[1:0] $end
+$var reg 2 h' sel_mux_r2[1:0] $end
+$var reg 2 i' sel_mux_r3[1:0] $end
+$var reg 2 j' sel_mux_r4[1:0] $end
+$var reg 2 k' sel_mux_r5[1:0] $end
+$var reg 2 l' sel_mux_r6[1:0] $end
+$var reg 2 m' sel_mux_r7[1:0] $end
+$scope module ua_inst $end
+$var reg 8 n' a[7:0] $end
+$var reg 8 o' b[7:0] $end
+$var reg 3 p' s[2:0] $end
+$var reg 1 q' ci $end
+$var reg 8 r' r[7:0] $end
+$var reg 1 s' co $end
+$var reg 1 t' vo $end
+$var reg 8 u' opa[7:0] $end
+$var reg 8 v' opb[7:0] $end
+$var reg 8 w' cero[7:0] $end
+$var reg 8 x' uno[7:0] $end
+$var reg 8 y' menos_uno[7:0] $end
+$var reg 8 z' b_invertida[7:0] $end
+$var reg 9 {' c_int[8:0] $end
+$scope module mux_op_a $end
+$var reg 8 |' i0[7:0] $end
+$var reg 8 }' i1[7:0] $end
+$var reg 8 !( i2[7:0] $end
+$var reg 8 "( i3[7:0] $end
+$var reg 8 #( i4[7:0] $end
+$var reg 8 $( i5[7:0] $end
+$var reg 8 %( i6[7:0] $end
+$var reg 8 &( i7[7:0] $end
+$var reg 3 '( s[2:0] $end
+$var reg 8 (( y[7:0] $end
+$var reg 1 )( d0 $end
+$var reg 1 *( d1 $end
+$var reg 1 +( d2 $end
+$var reg 1 ,( d3 $end
+$var reg 1 -( d4 $end
+$var reg 1 .( d5 $end
+$var reg 1 /( d6 $end
+$var reg 1 0( d7 $end
+$upscope $end
+$scope module mux_op_b $end
+$var reg 8 1( i0[7:0] $end
+$var reg 8 2( i1[7:0] $end
+$var reg 8 3( i2[7:0] $end
+$var reg 8 4( i3[7:0] $end
+$var reg 8 5( i4[7:0] $end
+$var reg 8 6( i5[7:0] $end
+$var reg 8 7( i6[7:0] $end
+$var reg 8 8( i7[7:0] $end
+$var reg 3 9( s[2:0] $end
+$var reg 8 :( y[7:0] $end
+$var reg 1 ;( d0 $end
+$var reg 1 <( d1 $end
+$var reg 1 =( d2 $end
+$var reg 1 >( d3 $end
+$var reg 1 ?( d4 $end
+$var reg 1 @( d5 $end
+$var reg 1 A( d6 $end
+$var reg 1 B( d7 $end
+$upscope $end
+$scope module sum0 $end
+$var reg 1 C( a $end
+$var reg 1 D( b $end
+$var reg 1 E( cin $end
+$var reg 1 F( s $end
+$var reg 1 G( cout $end
+$upscope $end
+$scope module sum1 $end
+$var reg 1 H( a $end
+$var reg 1 I( b $end
+$var reg 1 J( cin $end
+$var reg 1 K( s $end
+$var reg 1 L( cout $end
+$upscope $end
+$scope module sum2 $end
+$var reg 1 M( a $end
+$var reg 1 N( b $end
+$var reg 1 O( cin $end
+$var reg 1 P( s $end
+$var reg 1 Q( cout $end
+$upscope $end
+$scope module sum3 $end
+$var reg 1 R( a $end
+$var reg 1 S( b $end
+$var reg 1 T( cin $end
+$var reg 1 U( s $end
+$var reg 1 V( cout $end
+$upscope $end
+$scope module sum4 $end
+$var reg 1 W( a $end
+$var reg 1 X( b $end
+$var reg 1 Y( cin $end
+$var reg 1 Z( s $end
+$var reg 1 [( cout $end
+$upscope $end
+$scope module sum5 $end
+$var reg 1 \( a $end
+$var reg 1 ]( b $end
+$var reg 1 ^( cin $end
+$var reg 1 _( s $end
+$var reg 1 `( cout $end
+$upscope $end
+$scope module sum6 $end
+$var reg 1 a( a $end
+$var reg 1 b( b $end
+$var reg 1 c( cin $end
+$var reg 1 d( s $end
+$var reg 1 e( cout $end
+$upscope $end
+$scope module sum7 $end
+$var reg 1 f( a $end
+$var reg 1 g( b $end
+$var reg 1 h( cin $end
+$var reg 1 i( s $end
+$var reg 1 j( cout $end
+$upscope $end
+$upscope $end
+$scope module ul_inst $end
+$var reg 8 k( a[7:0] $end
+$var reg 8 l( b[7:0] $end
+$var reg 3 m( s[2:0] $end
+$var reg 8 n( r[7:0] $end
+$var reg 1 o( s_flag $end
+$var reg 1 p( z $end
+$var reg 8 q( r_internal[7:0] $end
+$upscope $end
+$scope module mux_bit0 $end
+$var reg 2 r( i[1:0] $end
+$var reg 1 s( s $end
+$var reg 1 t( y $end
+$upscope $end
+$scope module mux_bit1 $end
+$var reg 2 u( i[1:0] $end
+$var reg 1 v( s $end
+$var reg 1 w( y $end
+$upscope $end
+$scope module mux_bit2 $end
+$var reg 2 x( i[1:0] $end
+$var reg 1 y( s $end
+$var reg 1 z( y $end
+$upscope $end
+$scope module mux_bit3 $end
+$var reg 2 {( i[1:0] $end
+$var reg 1 |( s $end
+$var reg 1 }( y $end
+$upscope $end
+$scope module mux_bit4 $end
+$var reg 2 !) i[1:0] $end
+$var reg 1 ") s $end
+$var reg 1 #) y $end
+$upscope $end
+$scope module mux_bit5 $end
+$var reg 2 $) i[1:0] $end
+$var reg 1 %) s $end
+$var reg 1 &) y $end
+$upscope $end
+$scope module mux_bit6 $end
+$var reg 2 ') i[1:0] $end
+$var reg 1 () s $end
+$var reg 1 )) y $end
+$upscope $end
+$scope module mux_bit7 $end
+$var reg 2 *) i[1:0] $end
+$var reg 1 +) s $end
+$var reg 1 ,) y $end
+$upscope $end
+$upscope $end
+$scope module shift_block $end
+$var reg 8 -) q[7:0] $end
+$var reg 2 .) s[1:0] $end
+$var reg 8 /) d[7:0] $end
+$var reg 1 0) ci $end
+$var reg 1 1) cd $end
+$var reg 1 2) out_mux_izq $end
+$var reg 1 3) out_mux_der $end
+$var reg 2 4) sel_mux_izq[1:0] $end
+$var reg 2 5) sel_mux_d7[1:0] $end
+$var reg 2 6) sel_mux_d6[1:0] $end
+$var reg 2 7) sel_mux_d5[1:0] $end
+$var reg 2 8) sel_mux_d4[1:0] $end
+$var reg 2 9) sel_mux_d3[1:0] $end
+$var reg 2 :) sel_mux_d2[1:0] $end
+$var reg 2 ;) sel_mux_d1[1:0] $end
+$var reg 2 <) sel_mux_d0[1:0] $end
+$var reg 2 =) sel_mux_der[1:0] $end
+$scope module mux_aux_izq $end
+$var reg 2 >) i[1:0] $end
+$var reg 1 ?) s $end
+$var reg 1 @) y $end
+$upscope $end
+$scope module mux_d7 $end
+$var reg 2 A) i[1:0] $end
+$var reg 1 B) s $end
+$var reg 1 C) y $end
+$upscope $end
+$scope module mux_d6 $end
+$var reg 2 D) i[1:0] $end
+$var reg 1 E) s $end
+$var reg 1 F) y $end
+$upscope $end
+$scope module mux_d5 $end
+$var reg 2 G) i[1:0] $end
+$var reg 1 H) s $end
+$var reg 1 I) y $end
+$upscope $end
+$scope module mux_d4 $end
+$var reg 2 J) i[1:0] $end
+$var reg 1 K) s $end
+$var reg 1 L) y $end
+$upscope $end
+$scope module mux_d3 $end
+$var reg 2 M) i[1:0] $end
+$var reg 1 N) s $end
+$var reg 1 O) y $end
+$upscope $end
+$scope module mux_d2 $end
+$var reg 2 P) i[1:0] $end
+$var reg 1 Q) s $end
+$var reg 1 R) y $end
+$upscope $end
+$scope module mux_d1 $end
+$var reg 2 S) i[1:0] $end
+$var reg 1 T) s $end
+$var reg 1 U) y $end
+$upscope $end
+$scope module mux_d0 $end
+$var reg 2 V) i[1:0] $end
+$var reg 1 W) s $end
+$var reg 1 X) y $end
+$upscope $end
+$scope module mux_aux_der $end
+$var reg 2 Y) i[1:0] $end
+$var reg 1 Z) s $end
+$var reg 1 [) y $end
+$upscope $end
+$upscope $end
+$scope module mux_r0 $end
+$var reg 2 \) i[1:0] $end
+$var reg 1 ]) s $end
+$var reg 1 ^) y $end
+$upscope $end
+$scope module mux_r1 $end
+$var reg 2 _) i[1:0] $end
+$var reg 1 `) s $end
+$var reg 1 a) y $end
+$upscope $end
+$scope module mux_r2 $end
+$var reg 2 b) i[1:0] $end
+$var reg 1 c) s $end
+$var reg 1 d) y $end
+$upscope $end
+$scope module mux_r3 $end
+$var reg 2 e) i[1:0] $end
+$var reg 1 f) s $end
+$var reg 1 g) y $end
+$upscope $end
+$scope module mux_r4 $end
+$var reg 2 h) i[1:0] $end
+$var reg 1 i) s $end
+$var reg 1 j) y $end
+$upscope $end
+$scope module mux_r5 $end
+$var reg 2 k) i[1:0] $end
+$var reg 1 l) s $end
+$var reg 1 m) y $end
+$upscope $end
+$scope module mux_r6 $end
+$var reg 2 n) i[1:0] $end
+$var reg 1 o) s $end
+$var reg 1 p) y $end
+$upscope $end
+$scope module mux_r7 $end
+$var reg 2 q) i[1:0] $end
+$var reg 1 r) s $end
+$var reg 1 s) y $end
+$upscope $end
+$scope module mux_v_flag $end
+$var reg 2 t) i[1:0] $end
+$var reg 1 u) s $end
+$var reg 1 v) y $end
+$upscope $end
+$scope module mux_c_flag $end
+$var reg 4 w) i[3:0] $end
+$var reg 2 x) s[1:0] $end
+$var reg 1 y) y $end
+$upscope $end
+$upscope $end
+$scope module mux_out_inst $end
+$var reg 8 z) i0[7:0] $end
+$var reg 8 {) i1[7:0] $end
+$var reg 1 |) s $end
+$var reg 8 }) y[7:0] $end
+$upscope $end
+$scope module er_inst $end
+$var reg 1 !* c $end
+$var reg 1 "* s $end
+$var reg 1 #* v $end
+$var reg 1 $* z $end
+$var reg 2 %* sel[1:0] $end
+$var reg 3 &* op[2:0] $end
+$var reg 1 '* e3 $end
+$var reg 1 (* ci $end
+$var reg 1 )* mux_out $end
+$var reg 1 ** usa_ci $end
+$scope module mux_inst $end
+$var reg 4 +* i[3:0] $end
+$var reg 2 ,* s[1:0] $end
+$var reg 1 -* y $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module jump_logic_inst $end
+$var reg 1 .* s4 $end
+$var reg 1 /* s3 $end
+$var reg 1 0* s2 $end
+$var reg 1 1* s1 $end
+$var reg 1 2* s0 $end
+$var reg 1 3* c_flag $end
+$var reg 1 4* s_flag $end
+$var reg 1 5* v_flag $end
+$var reg 1 6* z_flag $end
+$var reg 1 7* jump_taken $end
+$var reg 1 8* j_condicion $end
+$var reg 1 9* es_instruccion_salto $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+U!
+U"
+bUUUUUUUUUUUUUUUUUUUUUUUUUU #
+bUUUUUUUUUUUUUUUU $
+bUUUUUUUU %
+bUUUUUUUU &
+bUUUUUUUU '
+U(
+bUUUUUUUUUUUUUUUUUUUUUUUUUU )
+bUUUUUUUUUUUUUUUU *
+U+
+U,
+U-
+U.
+U/
+U0
+U1
+U2
+U3
+U4
+U5
+U6
+U7
+bUUU 8
+bUUU 9
+bUUU :
+bUUUUU ;
+bUUUUUUUU <
+bUUUUUUUU =
+bUUUUUUUU >
+U?
+U@
+UA
+UB
+UC
+UD
+bUUUU E
+bUUUU F
+UG
+bUUUU H
+bUUUU I
+UJ
+UK
+UL
+UM
+UN
+UO
+UP
+UQ
+UR
+US
+UT
+UU
+UV
+UW
+UX
+UY
+UZ
+bUUUUUUUUUUUUUUUUUUUUUUUUUU [
+bUUUUUUUUUUUUUUUU \
+bUUUUUUUUUUUUUUUUUUUUUUUUUU ]
+U^
+U_
+U`
+bUUUUUUUUUUUUUUUU a
+bUUUUUUUUUUUUUUUU b
+bUUUUUUUUUUUUUUUUUUUUUUUUUU c
+Ud
+Ue
+b0000000000000000 f
+bUUUUUUUUUUUUUUUU g
+bUUUUUUUUUUUUUUUU h
+bUUUUUUUUUUUUUUUU i
+bUUUUUUUUUUUUUUUU j
+bUUUUUUUUUUUUUUUU k
+b0U l
+b0U m
+b0U n
+b0U o
+b0U p
+b0U q
+b0U r
+b0U s
+b0U t
+b0U u
+b0U v
+b0U w
+b0U x
+b0U y
+b0U z
+b0U {
+b0U |
+U}
+U!"
+U""
+U#"
+U$"
+b0U %"
+U&"
+U'"
+U("
+U)"
+U*"
+b0U +"
+U,"
+U-"
+U."
+U/"
+U0"
+b0U 1"
+U2"
+U3"
+U4"
+U5"
+U6"
+b0U 7"
+U8"
+U9"
+U:"
+U;"
+U<"
+b0U ="
+U>"
+U?"
+U@"
+UA"
+UB"
+b0U C"
+UD"
+UE"
+UF"
+UG"
+UH"
+b0U I"
+UJ"
+UK"
+UL"
+UM"
+UN"
+b0U O"
+UP"
+UQ"
+UR"
+US"
+UT"
+b0U U"
+UV"
+UW"
+UX"
+UY"
+UZ"
+b0U ["
+U\"
+U]"
+U^"
+U_"
+U`"
+b0U a"
+Ub"
+Uc"
+Ud"
+Ue"
+Uf"
+b0U g"
+Uh"
+Ui"
+Uj"
+Uk"
+Ul"
+b0U m"
+Un"
+Uo"
+Up"
+Uq"
+Ur"
+b0U s"
+Ut"
+Uu"
+Uv"
+Uw"
+Ux"
+b0U y"
+Uz"
+U{"
+U|"
+U}"
+U!#
+U"#
+U##
+bUUUUUUUUUUUUUUUUUUUUUUUUUU $#
+bUUUUUUUUUUUUUUUUUUUUUUUUUU %#
+bUUUUUUUUUUUUUUUUUUUUUUUUUU &#
+bUUUUUUUUUUUUUUUUUUUUUUUUUU '#
+U(#
+U)#
+U*#
+U+#
+U,#
+U-#
+U.#
+U/#
+U0#
+U1#
+U2#
+U3#
+U4#
+U5#
+U6#
+U7#
+U8#
+U9#
+U:#
+U;#
+U<#
+U=#
+U>#
+U?#
+U@#
+UA#
+UB#
+UC#
+UD#
+UE#
+UF#
+UG#
+UH#
+UI#
+UJ#
+UK#
+UL#
+UM#
+UN#
+UO#
+UP#
+UQ#
+UR#
+US#
+UT#
+UU#
+UV#
+UW#
+UX#
+UY#
+UZ#
+U[#
+U\#
+U]#
+U^#
+U_#
+U`#
+Ua#
+Ub#
+Uc#
+Ud#
+Ue#
+Uf#
+Ug#
+Uh#
+Ui#
+Uj#
+Uk#
+Ul#
+Um#
+Un#
+Uo#
+Up#
+Uq#
+Ur#
+Us#
+Ut#
+Uu#
+Uv#
+Uw#
+Ux#
+bUUU y#
+bUUU z#
+bUUU {#
+bUUUUU |#
+bUUUUUUUU }#
+U!$
+U"$
+U#$
+bUUUUUUUU $$
+bUUUUUUUU %$
+bUUUUUUUU &$
+U'$
+U($
+U)$
+U*$
+bUUUUUUUU +$
+bUUUUUUUU ,$
+bUUUUUUUU -$
+bUUUUUUUU .$
+bUUUUUUUU /$
+bUUUUUUUU 0$
+01$
+U2$
+U3$
+U4$
+U5$
+U6$
+bUUUUUUUU 7$
+bUUU 8$
+bUUU 9$
+bUUU :$
+U;$
+bUUUUUUUU <$
+bUUUUUUUU =$
+bUUUUUUUU >$
+bUUUUUUUU ?$
+bUUUUUUUU @$
+bUUUUUUUU A$
+bUUUUUUUU B$
+bUUUUUUUU C$
+bUUUUUUUU D$
+bUUUUUUUU E$
+bUUUUUUUU F$
+bUUUUUUUU G$
+bUUU H$
+bUUUUUUUU I$
+UJ$
+UK$
+bUUUUUUUU L$
+bUUUUUUUU M$
+UN$
+UO$
+UP$
+UQ$
+UR$
+US$
+UT$
+UU$
+UV$
+UW$
+UX$
+UY$
+UZ$
+U[$
+U\$
+U]$
+U^$
+U_$
+U`$
+Ua$
+Ub$
+Uc$
+Ud$
+Ue$
+Uf$
+Ug$
+bUUUUUUUU h$
+bUUUUUUUU i$
+Uj$
+Uk$
+Ul$
+Um$
+Un$
+Uo$
+Up$
+Uq$
+Ur$
+Us$
+Ut$
+Uu$
+Uv$
+Uw$
+Ux$
+Uy$
+Uz$
+U{$
+U|$
+U}$
+U!%
+U"%
+U#%
+U$%
+U%%
+U&%
+bUUUUUUUU '%
+bUUUUUUUU (%
+U)%
+U*%
+U+%
+U,%
+U-%
+U.%
+U/%
+U0%
+U1%
+U2%
+U3%
+U4%
+U5%
+U6%
+U7%
+U8%
+U9%
+U:%
+U;%
+U<%
+U=%
+U>%
+U?%
+U@%
+UA%
+UB%
+bUUUUUUUU C%
+bUUUUUUUU D%
+UE%
+UF%
+UG%
+UH%
+UI%
+UJ%
+UK%
+UL%
+UM%
+UN%
+UO%
+UP%
+UQ%
+UR%
+US%
+UT%
+UU%
+UV%
+UW%
+UX%
+UY%
+UZ%
+U[%
+U\%
+U]%
+U^%
+bUUUUUUUU _%
+bUUUUUUUU `%
+Ua%
+Ub%
+Uc%
+Ud%
+Ue%
+Uf%
+Ug%
+Uh%
+Ui%
+Uj%
+Uk%
+Ul%
+Um%
+Un%
+Uo%
+Up%
+Uq%
+Ur%
+Us%
+Ut%
+Uu%
+Uv%
+Uw%
+Ux%
+Uy%
+Uz%
+bUUUUUUUU {%
+bUUUUUUUU |%
+U}%
+U!&
+U"&
+U#&
+U$&
+U%&
+U&&
+U'&
+U(&
+U)&
+U*&
+U+&
+U,&
+U-&
+U.&
+U/&
+U0&
+U1&
+U2&
+U3&
+U4&
+U5&
+U6&
+U7&
+U8&
+U9&
+bUUUUUUUU :&
+bUUUUUUUU ;&
+U<&
+U=&
+U>&
+U?&
+U@&
+UA&
+UB&
+UC&
+UD&
+UE&
+UF&
+UG&
+UH&
+UI&
+UJ&
+UK&
+UL&
+UM&
+UN&
+UO&
+UP&
+UQ&
+UR&
+US&
+UT&
+UU&
+bUUUUUUUU V&
+bUUUUUUUU W&
+UX&
+UY&
+UZ&
+U[&
+U\&
+U]&
+U^&
+U_&
+U`&
+Ua&
+Ub&
+Uc&
+Ud&
+Ue&
+Uf&
+Ug&
+Uh&
+Ui&
+Uj&
+Uk&
+Ul&
+Um&
+Un&
+Uo&
+bUUUUUUUU p&
+bUUUUUUUU q&
+bUUUUUUUU r&
+bUUUUUUUU s&
+bUUUUUUUU t&
+bUUUUUUUU u&
+bUUUUUUUU v&
+bUUUUUUUU w&
+bUUU x&
+bUUUUUUUU y&
+Uz&
+U{&
+U|&
+U}&
+U!'
+U"'
+U#'
+U$'
+bUUUUUUUU %'
+bUUUUUUUU &'
+bUUUUUUUU ''
+bUUUUUUUU ('
+bUUUUUUUU )'
+bUUUUUUUU *'
+bUUUUUUUU +'
+bUUUUUUUU ,'
+bUUU -'
+bUUUUUUUU .'
+U/'
+U0'
+U1'
+U2'
+U3'
+U4'
+U5'
+U6'
+bUUUUUUUU 7'
+bUUUUUUUU 8'
+U9'
+bUUUUUUUU :'
+bUUUUUUUU ;'
+bUUUUUUUU <'
+U='
+bUUUUUUUU >'
+bUUUUUUUU ?'
+bUUUUUUUU @'
+bUUUUU A'
+0B'
+bUUUUUUUU C'
+UD'
+UE'
+UF'
+UG'
+bUUUUUUUU H'
+bUUUUUUUU I'
+UJ'
+UK'
+UL'
+UM'
+bUUUUUUUU N'
+bUUUU O'
+bUU P'
+bUU Q'
+bUU R'
+bUU S'
+bUU T'
+bUU U'
+bUU V'
+bUU W'
+bUU X'
+b0U Y'
+bUUUUUUUU Z'
+bUUUUUUUU ['
+bUUUU \'
+0]'
+bUUUUUUUU ^'
+U_'
+U`'
+Ua'
+Ub'
+bUUUUUUUU c'
+bUUUUUUUU d'
+bUUUUUUUU e'
+bUU f'
+bUU g'
+bUU h'
+bUU i'
+bUU j'
+bUU k'
+bUU l'
+bUU m'
+bUUUUUUUU n'
+bUUUUUUUU o'
+bUUU p'
+0q'
+bUUUUUUUU r'
+Us'
+Ut'
+bUUUUUUUU u'
+bUUUUUUUU v'
+b00000000 w'
+b00000001 x'
+b11111111 y'
+bUUUUUUUU z'
+bUUUUUUUU0 {'
+bUUUUUUUU |'
+bUUUUUUUU }'
+bUUUUUUUU !(
+b00000000 "(
+bUUUUUUUU #(
+b00000000 $(
+bUUUUUUUU %(
+b00000000 &(
+bUUU '(
+bUUUUUUUU ((
+U)(
+U*(
+U+(
+U,(
+U-(
+U.(
+U/(
+U0(
+bUUUUUUUU 1(
+bUUUUUUUU 2(
+b00000000 3(
+bUUUUUUUU 4(
+b00000001 5(
+bUUUUUUUU 6(
+b11111111 7(
+bUUUUUUUU 8(
+bUUU 9(
+bUUUUUUUU :(
+U;(
+U<(
+U=(
+U>(
+U?(
+U@(
+UA(
+UB(
+UC(
+UD(
+0E(
+UF(
+UG(
+UH(
+UI(
+UJ(
+UK(
+UL(
+UM(
+UN(
+UO(
+UP(
+UQ(
+UR(
+US(
+UT(
+UU(
+UV(
+UW(
+UX(
+UY(
+UZ(
+U[(
+U\(
+U](
+U^(
+U_(
+U`(
+Ua(
+Ub(
+Uc(
+Ud(
+Ue(
+Uf(
+Ug(
+Uh(
+Ui(
+Uj(
+bUUUUUUUU k(
+bUUUUUUUU l(
+bUUU m(
+bUUUUUUUU n(
+Uo(
+Up(
+bUUUUUUUU q(
+bUU r(
+Us(
+Ut(
+bUU u(
+Uv(
+Uw(
+bUU x(
+Uy(
+Uz(
+bUU {(
+U|(
+U}(
+bUU !)
+U")
+U#)
+bUU $)
+U%)
+U&)
+bUU ')
+U()
+U))
+bUU *)
+U+)
+U,)
+bUUUUUUUU -)
+bUU .)
+bUUUUUUUU /)
+U0)
+U1)
+U2)
+U3)
+b0U 4)
+bUU 5)
+bUU 6)
+bUU 7)
+bUU 8)
+bUU 9)
+bUU :)
+bUU ;)
+bUU <)
+bU0 =)
+b0U >)
+U?)
+U@)
+bUU A)
+UB)
+UC)
+bUU D)
+UE)
+UF)
+bUU G)
+UH)
+UI)
+bUU J)
+UK)
+UL)
+bUU M)
+UN)
+UO)
+bUU P)
+UQ)
+UR)
+bUU S)
+UT)
+UU)
+bUU V)
+UW)
+UX)
+bU0 Y)
+UZ)
+U[)
+bUU \)
+U])
+U^)
+bUU _)
+U`)
+Ua)
+bUU b)
+Uc)
+Ud)
+bUU e)
+Uf)
+Ug)
+bUU h)
+Ui)
+Uj)
+bUU k)
+Ul)
+Um)
+bUU n)
+Uo)
+Up)
+bUU q)
+Ur)
+Us)
+b0U t)
+Uu)
+Uv)
+bUUUU w)
+bUU x)
+Uy)
+bUUUUUUUU z)
+bUUUUUUUU {)
+U|)
+bUUUUUUUU })
+U!*
+U"*
+U#*
+U$*
+bUU %*
+bUUU &*
+U'*
+0(*
+U)*
+0**
+bUUUU +*
+bUU ,*
+U-*
+U.*
+U/*
+U0*
+U1*
+U2*
+U3*
+U4*
+U5*
+U6*
+U7*
+U8*
+U9*

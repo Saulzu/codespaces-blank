@@ -12,10 +12,9 @@ end Reg8b;
 
 architecture Arq_Reg8b of Reg8b is
 
-    component FFD is
+    component FlipFlopD is
         Port ( 
             clk : in  STD_LOGIC;  -- Reloj
-            W   : in  STD_LOGIC;  -- Habilitación de escritura
             D   : in  STD_LOGIC;  -- Entrada de datos (1 bit)
             Q   : out STD_LOGIC   -- Salida del flip-flop
         );
@@ -24,9 +23,8 @@ architecture Arq_Reg8b of Reg8b is
 begin
 
     REG_ESTRUCTURAL: for i in 0 to 7 generate
-        Bit_x: FFD port map (
+        Bit_x: FlipFlopD port map (
             clk => CLK, 
-            W   => W, 
             D   => D(i), 
             Q   => Q(i)
         );

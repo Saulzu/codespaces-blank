@@ -1,14 +1,14 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity deco_3a8 is
+entity Deco3a8 is
     Port ( 
         S : in  STD_LOGIC_VECTOR (2 downto 0); -- Entrada de selección (3 bits)
         Y : out STD_LOGIC_VECTOR (7 downto 0)  -- Salidas descodificadas
     );
-end deco_3a8;
+end Deco3a8;
 
-architecture Arq_deco_3a8 of deco_3a8 is
+architecture Arq_deco_3a8 of Deco3a8 is
 begin
     Y(0) <= (not S(2)) and (not S(1)) and (not S(0));
     Y(1) <= (not S(2)) and (not S(1)) and S(0);

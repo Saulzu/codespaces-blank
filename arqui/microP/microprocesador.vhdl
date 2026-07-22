@@ -1,109 +1,134 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity Microprocesador is
+entity MicroP is
     Port (
-        CLK : in STD_LOGIC;  -- Señal de reloj principal del sistema
-        RST : in STD_LOGIC   -- Señal de reset (no implementado actualmente)
+        CLK : in STD_LOGIC;
+        RST : in STD_LOGIC;
+
+        -- Memoria de Código (Harvard)
+        Instruction_Bus : in  STD_LOGIC_VECTOR(25 downto 0);
+        PC_Address      : out STD_LOGIC_VECTOR(15 downto 0);
+
+        -- Memoria de Datos (Harvard)
+        Data_Read    : in  STD_LOGIC_VECTOR(7 downto 0);
+        Data_Address : out STD_LOGIC_VECTOR(7 downto 0);
+        Data_Write   : out STD_LOGIC_VECTOR(7 downto 0);
+        Mem_Write    : out STD_LOGIC
     );
-end Microprocesador;
+end MicroP;
 
-architecture Estructural of Microprocesador is
+architecture Arq_Microp of MicroP is
 
-    -- Declaración de Componentes
-    component Datapath is
-        Port ( 
-            CLK : in STD_LOGIC;
-            W_UR, L_OR, Ci, m1, m2 : in STD_LOGIC;
-            DC, DA, DB : in STD_LOGIC_VECTOR(2 downto 0);
-            S : in STD_LOGIC_VECTOR(4 downto 0);
-            Datos_Memoria : in STD_LOGIC_VECTOR(7 downto 0);
-            Dir_Memoria, Datos_Escribir : out STD_LOGIC_VECTOR(7 downto 0);
-            C, S_flag, V, Z : out STD_LOGIC
-        );
-    end component;
+    -- Señales internas
+    signal IR_Internal : STD_LOGIC_VECTOR(25 downto 0);
+    signal PC_Internal : STD_LOGIC_VECTOR(15 downto 0);
+    signal C_out, S_out, V_out, Z_out : STD_LOGIC;
+    signal Jump_Signal : STD_LOGIC;
 
-    component UC is
-        Port ( 
-            CLK, InA, InB, w_prime, mw_param : in STD_LOGIC;
-            D_Memoria_16 : in STD_LOGIC_VECTOR(15 downto 0);
-            D_Memoria_26 : in STD_LOGIC_VECTOR(25 downto 0);
-            C_flag, S_flag, V_flag, Z_flag : in STD_LOGIC;
-            PC_Out : out STD_LOGIC_VECTOR(15 downto 0);
-            IR_Out : out STD_LOGIC_VECTOR(25 downto 0);
-            MW_Output : out STD_LOGIC
-        );
-    end component;
+    -- Señales del Secuenciador
+    signal E0, E1, E2, E3 : STD_LOGIC;
 
-    component Logica_Saltos is
-        Port (
-            S4, S3, S2, S1, S0 : in STD_LOGIC;
-            C_flag, S_flag, V_flag, Z_flag : in STD_LOGIC;
-            Jump_Taken : out STD_LOGIC
-        );
-    end component;
+    -- Señales de control extraídas del IR
+    signal W_UR, MW, M1, M2 : STD_LOGIC;
+    signal DC, DA, DB : STD_LOGIC_VECTOR(2 downto 0);
+    signal S : STD_LOGIC_VECTOR(4 downto 0);
+    signal Inm : STD_LOGIC_VECTOR(7 downto 0);
 
-    -- Señales internas de interconexión entre componentes
-    signal C_out, S_out, V_out, Z_out : STD_LOGIC;  -- Banderas de salida del Datapath (Carry, Sign, oVerflow, Zero)
-    signal Instruction_Bus : STD_LOGIC_VECTOR(25 downto 0);  -- Bus de instrucción desde el IR hacia Datapath y Lógica de Saltos
-    signal PC_Bus : STD_LOGIC_VECTOR(15 downto 0);  -- Dirección del programa actual desde el PC
-    signal Jump_Signal : STD_LOGIC;  -- Señal de control: 1 si debe tomarse un salto condicional
+    -- Señales del Datapath
+    signal Data_Addr_Internal : STD_LOGIC_VECTOR(7 downto 0);
+    signal Data_Write_Internal : STD_LOGIC_VECTOR(7 downto 0);
 
 begin
 
-    -- Instanciación de la Unidad de Control
-    UC_Inst : UC port map (
-        CLK => CLK,
-        InA => '0',       -- A conectar según la lógica de tu secuenciador
-        InB => '0',       -- A conectar según la lógica de tu secuenciador
-        w_prime => '1',   -- Señal de fetch
-        mw_param => '0',  
-        D_Memoria_16 => (others => '0'), -- Conectar a Memoria de Instrucciones
-        D_Memoria_26 => (others => '0'), -- Conectar a Memoria de Instrucciones
-        C_flag => C_out,
-        S_flag => S_out,
-        V_flag => V_out,
-        Z_flag => Z_out,
-        PC_Out => PC_Bus,
-        IR_Out => Instruction_Bus,
-        MW_Output => open
-    );
+    -- ============================================
+    -- Extracción de la palabra de control
+    -- ============================================
+    DC  <= IR_Internal(25 downto 23);
+    DA  <= IR_Internal(22 downto 20);
+    DB  <= IR_Internal(19 downto 17);
+    S   <= IR_Internal(16 downto 12);
+    W_UR<= IR_Internal(11);
+    MW  <= IR_Internal(10);
+    M1  <= IR_Internal(9);
+    M2  <= IR_Internal(8);
+    Inm <= IR_Internal(7 downto 0);
 
-    -- Instanciación del Datapath
-    Datapath_Inst : Datapath port map (
-        CLK => CLK,
-        W_UR => Instruction_Bus(25), -- Ejemplo de mapeo desde IR
-        L_OR => Instruction_Bus(24),
-        Ci   => Instruction_Bus(23),
-        m1   => Instruction_Bus(22),
-        m2   => Instruction_Bus(21),
-        DC   => Instruction_Bus(20 downto 18),
-        DA   => Instruction_Bus(17 downto 15),
-        DB   => Instruction_Bus(14 downto 12),
-        S    => Instruction_Bus(4 downto 0), -- Selector de ALU / Saltos (S4..S0)
-        Datos_Memoria => (others => '0'),    -- Conectar a RAM de Datos
-        Dir_Memoria => open,
-        Datos_Escribir => open,
-        C => C_out,
-        S_flag => S_out,
-        V => V_out,
-        Z => Z_out
-    );
+    -- ============================================
+    -- Secuenciador
+    -- ============================================
+    SECUENCIADOR_INST : entity work.secuenciador
+        port map (
+            clk => CLK,
+            rst => RST,
+            E0  => E0,
+            E1  => E1,
+            E2  => E2,
+            E3  => E3
+        );
 
-    -- Instanciación de Lógica de Saltos
-    Jump_Logic_Inst : Logica_Saltos port map (
-        S4 => Instruction_Bus(4),
-        S3 => Instruction_Bus(3),
-        S2 => Instruction_Bus(2),
-        S1 => Instruction_Bus(1),
-        S0 => Instruction_Bus(0),
-        C_flag => C_out,
-        S_flag => S_out,
-        V_flag => V_out,
-        Z_flag => Z_out,
-        Jump_Taken => Jump_Signal
-    );
+    -- ============================================
+    -- Unidad de Control
+    -- ============================================
+    UC_INST : entity work.UControl
+        port map (
+            CLK        => CLK,
+            E0         => E0,
+            E1         => E1,
+            E2         => E2,
+            E3         => E3,
+            Instruction => Instruction_Bus,
+            PC_Out     => PC_Internal,
+            IR_Out     => IR_Internal,
+            MW_Output  => Mem_Write
+        );
 
-    -- Jump_Signal deberá conectarse a la habilitación de carga de tu PC en la UC
+    -- ============================================
+    -- Datapath
+    -- ============================================
+    DATAPATH_INST : entity work.Datapath
+        port map (
+            CLK          => CLK,
+            W_UR         => W_UR,
+            DC           => DC,
+            DA           => DA,
+            DB           => DB,
+            S            => S,
+            Inm          => Inm,
+            M1           => M1,
+            M2           => M2,
+            E3           => E3,
+            Data_Read    => Data_Read,
+            Data_Address => Data_Addr_Internal,
+            Data_Write   => Data_Write_Internal,
+            C            => C_out,
+            S_flag       => S_out,
+            V            => V_out,
+            Z            => Z_out
+        );
 
-end Estructural;
+    -- ============================================
+    -- Lógica de Saltos
+    -- ============================================
+    JUMP_LOGIC_INST : entity work.LogicSaltos
+        port map (
+            S4         => S(4),
+            S3         => S(3),
+            S2         => S(2),
+            S1         => S(1),
+            S0         => S(0),
+            C_flag     => C_out,
+            S_flag     => S_out,
+            V_flag     => V_out,
+            Z_flag     => Z_out,
+            Jump_Taken => Jump_Signal
+        );
+
+    -- ============================================
+    -- Salidas
+    -- ============================================
+    PC_Address   <= PC_Internal;
+    Data_Address <= Data_Addr_Internal;
+    Data_Write   <= Data_Write_Internal;
+
+end Arq_Microp;

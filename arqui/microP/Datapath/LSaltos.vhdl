@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity Logica_Saltos is
+entity LogicSaltos is
     Port (
         -- Bits de instrucción (5 bits más significativos del IR)
         S4, S3, S2, S1, S0 : in STD_LOGIC;  -- Bits de control de salto: S4,S3 determinan si es instrucción de salto; S2,S1,S0 tipo de salto
@@ -13,9 +13,9 @@ entity Logica_Saltos is
         -- Salida de control
         Jump_Taken : out STD_LOGIC  -- Señal de salto ejecutado (1=salto debe tomarse, 0=salto no se toma)
     );
-end Logica_Saltos;
+end LogicSaltos;
 
-architecture Arq_Logica_Saltos of Logica_Saltos is
+architecture Arq_Logica_Saltos of LogicSaltos is
     signal J_Condicion : STD_LOGIC;        -- Señal que indica si la condición del salto es verdadera
     signal Es_Instruccion_Salto : STD_LOGIC;  -- Señal que indica si es una instrucción de salto
 begin
