@@ -6,11 +6,11 @@ entity MicroP is
         CLK : in STD_LOGIC;
         RST : in STD_LOGIC;
 
-        -- Memoria de Código (Harvard)
+        -- Memoria de Código 
         Instruction_Bus : in  STD_LOGIC_VECTOR(25 downto 0);
         PC_Address      : out STD_LOGIC_VECTOR(15 downto 0);
 
-        -- Memoria de Datos (Harvard)
+        -- Memoria de Datos
         Data_Read    : in  STD_LOGIC_VECTOR(7 downto 0);
         Data_Address : out STD_LOGIC_VECTOR(7 downto 0);
         Data_Write   : out STD_LOGIC_VECTOR(7 downto 0);
@@ -41,9 +41,6 @@ architecture Arq_Microp of MicroP is
 
 begin
 
-    -- ============================================
-    -- Extracción de la palabra de control
-    -- ============================================
     DC  <= IR_Internal(25 downto 23);
     DA  <= IR_Internal(22 downto 20);
     DB  <= IR_Internal(19 downto 17);
@@ -54,9 +51,6 @@ begin
     M2  <= IR_Internal(8);
     Inm <= IR_Internal(7 downto 0);
 
-    -- ============================================
-    -- Secuenciador
-    -- ============================================
     SECUENCIADOR_INST : entity work.secuenciador
         port map (
             clk => CLK,
@@ -67,9 +61,6 @@ begin
             E3  => E3
         );
 
-    -- ============================================
-    -- Unidad de Control
-    -- ============================================
     UC_INST : entity work.UControl
         port map (
             CLK        => CLK,
@@ -83,9 +74,6 @@ begin
             MW_Output  => Mem_Write
         );
 
-    -- ============================================
-    -- Datapath
-    -- ============================================
     DATAPATH_INST : entity work.Datapath
         port map (
             CLK          => CLK,
@@ -107,9 +95,6 @@ begin
             Z            => Z_out
         );
 
-    -- ============================================
-    -- Lógica de Saltos
-    -- ============================================
     JUMP_LOGIC_INST : entity work.LogicSaltos
         port map (
             S4         => S(4),
@@ -124,9 +109,6 @@ begin
             Jump_Taken => Jump_Signal
         );
 
-    -- ============================================
-    -- Salidas
-    -- ============================================
     PC_Address   <= PC_Internal;
     Data_Address <= Data_Addr_Internal;
     Data_Write   <= Data_Write_Internal;

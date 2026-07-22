@@ -24,7 +24,6 @@ begin
     D6 <=     S(2) and     S(1) and not S(0);
     D7 <=     S(2) and     S(1) and     S(0);
 
-    -- Solución: Usar concatenación y repetición con '&'
     Y <= (I0 and (D0 & D0 & D0 & D0 & D0 & D0 & D0 & D0)) or
          (I1 and (D1 & D1 & D1 & D1 & D1 & D1 & D1 & D1)) or
          (I2 and (D2 & D2 & D2 & D2 & D2 & D2 & D2 & D2)) or

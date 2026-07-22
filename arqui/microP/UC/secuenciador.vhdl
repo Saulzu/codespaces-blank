@@ -40,7 +40,7 @@ begin
     D_reg(2) <= Q_reg(1) and not rst;                       -- E2 → E0
     D_reg(3) <= Q_reg(2) and not rst;                       -- E0 → E3
 
-    -- Salidas (un caliente)
+    -- Salidas
     E1 <= Q_reg(0);  -- Inicio/Reset
     E2 <= Q_reg(1);  -- Buscar instrucción
     E0 <= Q_reg(2);  -- Contar (PC+1)

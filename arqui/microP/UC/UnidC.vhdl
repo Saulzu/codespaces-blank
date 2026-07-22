@@ -45,15 +45,10 @@ architecture Arq_UnidadC of UControl is
 
 begin
 
-    -- ============================================
-    -- Control de carga
-    -- ============================================
     PC_Load <= E0;               -- Avanzar PC en E0
     IR_Load <= E2;               -- Cargar IR en E2
 
-    -- ============================================
-    -- PC (incrementa automáticamente o carga)
-    -- ============================================
+    -- PC incrementa o carga
     PC_INST : PC
         port map (
             CLK => CLK,
@@ -62,9 +57,7 @@ begin
             Q   => PC_Current
         );
 
-    -- ============================================
     -- IR (carga instrucción en E2)
-    -- ============================================
     IR_INST : IR
         port map (
             CLK => CLK,
@@ -73,9 +66,6 @@ begin
             Q   => IR_Current
         );
 
-    -- ============================================
-    -- Salidas
-    -- ============================================
     PC_Out    <= PC_Current;
     IR_Out    <= IR_Current;
     MW_Output <= Instruction(10);  -- MW directo desde la instrucción

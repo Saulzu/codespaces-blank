@@ -29,19 +29,9 @@ architecture Arq_ER of ER is
 
 begin
 
-    -- ============================================
     -- Detectar si la operación necesita Ci
-    -- S(2:0):
-    --   000 = ADD  (suma)
-    --   001 = ADC  (suma con acarreo)
-    --   010 = SUB  (resta)
-    --   011 = SBC  (resta con acarreo)
-    -- ============================================
     Usa_Ci <= '1' when (Op = "000" or Op = "001" or Op = "010" or Op = "011") else '0';
 
-    -- ============================================
-    -- Mux 4a1 selecciona la bandera según Sel
-    -- ============================================
     MUX_INST : Mux_4a1
         port map (
             I(0) => C,
@@ -52,9 +42,7 @@ begin
             Y    => Mux_Out
         );
 
-    -- ============================================
     -- Ci solo se activa en E3 y si la operación lo necesita
-    -- ============================================
     Ci <= Mux_Out when (E3 = '1' and Usa_Ci = '1') else '0';
 
 end Arq_ER;

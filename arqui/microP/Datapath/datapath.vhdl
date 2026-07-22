@@ -5,7 +5,6 @@ entity Datapath is
     Port (
         CLK   : in  STD_LOGIC;
 
-        -- Palabra de control
         W_UR  : in  STD_LOGIC;
         DC    : in  STD_LOGIC_VECTOR(2 downto 0);
         DA    : in  STD_LOGIC_VECTOR(2 downto 0);
@@ -14,9 +13,9 @@ entity Datapath is
         Inm   : in  STD_LOGIC_VECTOR(7 downto 0);
         M1    : in  STD_LOGIC;
         M2    : in  STD_LOGIC;
-        E3    : in  STD_LOGIC;  -- Señal de ejecución (habilita ER)
+        E3    : in  STD_LOGIC;  
 
-        -- Memoria de Datos (Harvard)
+        -- Memoria de Datos 
         Data_Read    : in  STD_LOGIC_VECTOR(7 downto 0);
         Data_Address : out STD_LOGIC_VECTOR(7 downto 0);
         Data_Write   : out STD_LOGIC_VECTOR(7 downto 0);
@@ -30,10 +29,6 @@ entity Datapath is
 end Datapath;
 
 architecture Arq_DataP of Datapath is
-
-    -- ============================================
-    -- Componentes
-    -- ============================================
 
     component Unit_Reg is
         Port (
@@ -71,7 +66,6 @@ architecture Arq_DataP of Datapath is
         );
     end component;
 
-    -- ER (Mux 4a1 con habilitación)
     component ER is
         Port (
             C  : in  STD_LOGIC;
@@ -85,10 +79,6 @@ architecture Arq_DataP of Datapath is
         );
     end component;
 
-    -- ============================================
-    -- Señales internas
-    -- ============================================
-
     signal UR_A, UR_B    : STD_LOGIC_VECTOR(7 downto 0);
     signal MuxA_Out      : STD_LOGIC_VECTOR(7 downto 0);
     signal MuxB_Out      : STD_LOGIC_VECTOR(7 downto 0);
@@ -99,9 +89,6 @@ architecture Arq_DataP of Datapath is
 
 begin
 
-    -- ============================================
-    -- 1. Unidad de Registros (UR)
-    -- ============================================
     UR_INST : Unit_Reg
         port map (
             CLK  => CLK,
@@ -114,9 +101,7 @@ begin
             B    => UR_B
         );
 
-    -- ============================================
-    -- 2. Mux entrada A (UR o Inm)
-    -- ============================================
+    -- Mux entrada A (UR o Inm)
     MUX_A_INST : Mux_2a1_8b
         port map (
             I0 => UR_A,
@@ -125,9 +110,7 @@ begin
             Y  => MuxA_Out
         );
 
-    -- ============================================
-    -- 3. Mux entrada B (UR o Data_Read)
-    -- ============================================
+    -- Mux entrada B (UR o Data_Read)
     MUX_B_INST : Mux_2a1_8b
         port map (
             I0 => UR_B,
@@ -136,9 +119,6 @@ begin
             Y  => MuxB_Out
         );
 
-    -- ============================================
-    -- 4. Unidad Funcional (ALU + Shifter)
-    -- ============================================
     UF_INST : Unidad_Funcional
         port map (
             A      => MuxA_Out,
@@ -152,9 +132,7 @@ begin
             Z      => Z_int
         );
 
-    -- ============================================
-    -- 5. Mux de salida (UF_R o Data_Read)
-    -- ============================================
+    -- Mux de salida (UF_R o Data_Read)
     MUX_OUT_INST : Mux_2a1_8b
         port map (
             I0 => UF_R,
@@ -163,12 +141,7 @@ begin
             Y  => Reg_Write
         );
 
-    -- ============================================
-    -- 6. ER: Registro de Estado (Mux 4a1 con habilitación)
-    --     Selecciona C/S/V/Z según S(1:0) cuando:
-    --     - E3 = '1' (estamos en ejecución)
-    --     - La operación usa Ci (S(2:0) = 000, 001, 010, 011)
-    -- ============================================
+    -- ER: Registro de Estado (Mux 4a1 con habilitación)
     ER_INST : ER
         port map (
             C   => C_int,
@@ -181,9 +154,7 @@ begin
             Ci  => Ci
         );
 
-    -- ============================================
-    -- 7. Salidas
-    -- ============================================
+    -- Salidas
     C      <= C_int;
     S_flag <= S_int;
     V      <= V_int;
